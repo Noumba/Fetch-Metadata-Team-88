@@ -15,7 +15,7 @@ In this project we used Django to build a web based metadata extraction web app,
 
 - [Research Document](https://docs.google.com/document/d/1V-CsWNocUllupPYLu3KicmMY2abUbJ4wbuCy5uT--h8/edit?usp=sharing)
 
-- [User Research]
+- [User Research] 
 - [Figma Links]
 - [Slides ]
 - [Figjam Links]
