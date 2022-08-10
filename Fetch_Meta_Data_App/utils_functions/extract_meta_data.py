@@ -5,6 +5,8 @@ from hachoir.metadata import extractMetadata
 from exif import Image
 from PIL import Image as im
 
+import exiftool
+
 # Extract Pdf metadata
 
 
@@ -45,4 +47,8 @@ img_path = f'Fetch_Meta_Data_App/static/upload/80.png'
 with open(img_path, 'rb') as img_file:
     img = Image(img_file)
 
-print(img.has_exif)
+# print(img.has_exif)
+
+
+def get_metadata(filename):
+    pass
