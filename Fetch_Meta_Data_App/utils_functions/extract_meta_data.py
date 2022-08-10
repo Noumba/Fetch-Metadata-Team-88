@@ -52,7 +52,11 @@ with open(img_path, 'rb') as img_file:
 
 
 def get_metadata(filename):
-    with exiftool.ExifToolHelper() as et:
-        metadata = et.get_metadata(filename)
-    for d in metadata:
-        return d
+    ''' This functions returns the metdata of any file as a dictionary'''
+    try:
+        with exiftool.ExifToolHelper() as et:
+            metadata = et.get_metadata(filename)
+        for meta_dict in metadata:
+            return meta_dict
+    except Exception as err:
+        return None
