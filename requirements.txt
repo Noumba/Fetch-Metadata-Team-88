@@ -13,3 +13,5 @@ pycodestyle==2.9.0
 pyparsing==3.0.9
 sqlparse==0.4.2
 toml==0.10.2
+
+**Requirments for the Metadata project**
