@@ -1,5 +1,5 @@
 The link to the task given on Github 
-https://github.com/orgs/zuri-training/projects/161#
+https://github.com/zuri-training/Fetch-Metadata-Team-88/issues/19
 
 The link to my figma and figjam contributions 
 https://www.figma.com/file/KIJ4Ihwez1xVnNzkys8gf3/Medinat-Olajide-Team_88?node-id=0%3A1
