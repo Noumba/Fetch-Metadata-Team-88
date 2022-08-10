@@ -11,6 +11,14 @@ In this project we used Django to build a web based metadata extraction web app,
 
 ---
 
+Tools used
+Figma
+Google Docs
+Figjam
+Python
+
+___
+
 **Our Project Documentation:**
 
 - [Research Document](https://docs.google.com/document/d/1V-CsWNocUllupPYLu3KicmMY2abUbJ4wbuCy5uT--h8/edit?usp=sharing)
