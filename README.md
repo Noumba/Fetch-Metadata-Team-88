@@ -16,7 +16,7 @@ In this project we used Django to build a web based metadata extraction web app,
 - [Research Document](https://docs.google.com/document/d/1V-CsWNocUllupPYLu3KicmMY2abUbJ4wbuCy5uT--h8/edit?usp=sharing)
 
 - [User Research](https://www.figma.com/file/7dUOOrIWE8Ts7bBna4mRUd/user-research-fetch-metadata--proto?node-id=0%3A1)
-- [Figma Links]
+- [Final Design](https://www.figma.com/file/R6dseaUIzRUSh4YP09cT7d/Team_88_Fetch-Metadata?node-id=3%3A5)
 - [Slides ]
 - [Database Schema]
 
