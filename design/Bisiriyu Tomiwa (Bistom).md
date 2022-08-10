@@ -10,5 +10,5 @@ https://www.figma.com/file/TcbMt7FHxNFJ4CgH3GnQCI/Team-88_Fetch-Metadata?node-id
 Links to the user research i took part in
 https://www.figma.com/file/7dUOOrIWE8Ts7bBna4mRUd/user-research-fetch-metadata--proto?node-id=1%3A3
 https://www.figma.com/file/7dUOOrIWE8Ts7bBna4mRUd/user-research-fetch-metadata--proto?node-id=1%3A235
-These are the links to the designs i worked on in my team
+This is the link to the designs i worked on in my team
 https://www.figma.com/file/Z9EkUwLpbszdOAtumPO89P/Bisiriyu-Tomiwa's-Design-Contribution?node-id=0%3A1
