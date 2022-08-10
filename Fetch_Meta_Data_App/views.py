@@ -22,4 +22,5 @@ def upload_file(request):
     else:
         form = FileUpload()
     context = {"metadata": meta_data, 'form': form}
+
     return render(request, 'index.html', context)  # {'form': form})
