@@ -37,7 +37,7 @@ def register_api(request):
     try:
         if request.method == 'POST':
 
-            print(request)
+            # print(request)
             first_name = request.POST.get("first_name")
             last_name = request.POST.get('last_name')
             username = request.POST.get('username')
@@ -45,10 +45,10 @@ def register_api(request):
             rt_password = request.POST.get('rt_password')
             email = request.POST.get('email')
 
-            print(first_name, last_name, username, password, email)
+            #print(first_name, last_name, username, password, email)
 
             if (username == '' or password == '' or email == '' or rt_password == '' or first_name == '' or last_name == ''):
-                print('username and password are required')
+                #print('username and password are required')
                 return render(request, 'auth/register.html')
 
             if password != rt_password:
@@ -59,7 +59,7 @@ def register_api(request):
             if User.objects.filter(email=email).exists():
                 messages.error(
                     request, 'User with that email address already exists')
-            print('reaching the create user method')
+            #print('reaching the create user method')
             user = User.objects.create(username=username, email=email,
                                        password=make_password(password), first_name=first_name, last_name=last_name)
             print('reaching the login function')

@@ -26,3 +26,6 @@ class Metadata(models.Model):
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     meta_data = models.JSONField()
     created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return self.meta_data
