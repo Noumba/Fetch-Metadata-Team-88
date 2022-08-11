@@ -1,0 +1,224 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
+.nav_bar {
+  background: linear-gradient(
+    124.05deg,
+    rgba(0, 49, 112, 0.9) 52.28%,
+    rgba(2, 62, 138, 0.81) 68.75%
+  );
+}
+
+.search_bar_div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 40vw;
+  margin-right: 60px;
+}
+
+.search_input {
+  border: none;
+  height: 80%;
+  width: 70%;
+  padding: 12px 40px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.search_icon {
+  color: grey;
+  transform: translateX(60px);
+}
+
+.profile_avatar {
+  max-width: 10%;
+}
+
+body {
+  overflow-x: hidden;
+}
+.main_div {
+  display: flex;
+  width: 100vw;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 90vh;
+  padding: 4%;
+}
+.folder_image {
+  width: 12vw;
+}
+.title {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 42px;
+  line-height: 53px;
+  text-align: center;
+  color: #14191f;
+  margin-bottom: 10px;
+}
+.description {
+  margin-top: 10px;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #14191f;
+  padding: 0 0%;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 18vw;
+  padding-top: 20px;
+}
+
+.cancel {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  padding-top: -20px;
+  height: 38px;
+  padding: 8px 20px;
+  border: 1px solid #023e8a;
+  color: #023e8a;
+  font-weight: 600;
+  background-color: white;
+  border-radius: 8px;
+}
+.upload {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 20px;
+  border: 1px solid #023e8a;
+  background: #023e8a;
+  border-radius: 8px;
+  color: white;
+  font-weight: 400;
+}
+
+.grid-container {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  width: 10vw;
+  transform: translateX(-300%);
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  font-size: 30px;
+  height: 52px;
+  text-align: center;
+}
+.grid-item-odd {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
+  width: 285px;
+  height: 52px;
+  background: #d5d5d5;
+}
+.grid-item-even {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 10px 170px 10px 10px;
+  gap: 10px;
+
+  width: 638px;
+  height: 52px;
+
+  background: #ffffff;
+}
+.table_titles {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  /* identical to box height, or 160% */
+
+  display: flex;
+  align-items: center;
+
+  /* Text colour */
+
+  color: #14191f;
+}
+
+.table_data {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  color: #14191f;
+}
+
+.bottom_buttons {
+  justify-content: space-around;
+  width: 70vw;
+}
+
+.btn {
+  width: 30vw;
+  margin: 10px;
+  padding-top: 10px;
+}
+
+.btn_icons {
+  margin-left: 20px;
+}
+@media screen and (max-width: 800px) {
+  .main_div {
+    margin-top: -50px;
+    justify-content: center;
+  }
+  .nav_bar {
+    display: none;
+  }
+  .title {
+    padding: 0;
+    font-size: 100%;
+  }
+  .folder_image {
+    transform: scale(2);
+  }
+  .description {
+    display: none;
+  }
+
+  .buttons {
+    width: 70vw;
+    align-items: center;
+
+    padding: 0;
+    margin: 50px;
+  }
+  .cancel {
+    background-color: gray;
+    color: #f7f3f3;
+    margin-top: 18px;
+    border: none;
+  }
+}
