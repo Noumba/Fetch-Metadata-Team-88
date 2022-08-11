@@ -79,6 +79,10 @@ run `pip install -r requirements.txt`
 
 and wait for all the packages to be installed before you start using the django project.
 
+> Software Dependency
+
+Install Exiftool from (https://exiftool.org)
+
 ---
 
 **Project Initialization**
