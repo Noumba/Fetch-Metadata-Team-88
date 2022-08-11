@@ -6,3 +6,9 @@ https://www.figma.com/file/vuU1rTR0wMGJbrpCWzWCnU/Team_88%2F-contributions-mad.
 
 This is the link to my design, hifi/lofi submission task.
 https://www.figma.com/file/NYLCCR2kxNT7uNzEfprle5/team_88%2Fcontributions-made?node-id=0%3A1
+
+Task submission for user research.
+https://github.com/zuri-training/Fetch-Metadata-Team-88/issues/21#issuecomment-1210811464
+
+Task submission for final design editing
+https://github.com/zuri-training/Fetch-Metadata-Team-88/issues/17#issuecomment-1210821485
