@@ -1,16 +1,19 @@
 # Admin libraries
 from django.shortcuts import render
 from django.http import HttpResponse, request
-from Fetch_Meta_Data_App.utils_functions.functions import handle_uploaded_file
-from Fetch_Meta_Data_App.utils_functions.extract_meta_data import get_metadata
+from django.core.files.storage import FileSystemStorage
+
 from .forms import FileUpload
 
-import json
-
 # Fetch metadata packages
+from Fetch_Meta_Data_App.utils_functions.functions import handle_uploaded_file
+from Fetch_Meta_Data_App.utils_functions.extract_meta_data import get_metadata
 
-
+# Export filetype library
+import json
 # Create your views here.
+
+
 def upload_file(request):
     '''Uploading File'''
     meta_data = ""

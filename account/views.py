@@ -62,11 +62,12 @@ def register_api(request):
             #print('reaching the create user method')
             user = User.objects.create(username=username, email=email,
                                        password=make_password(password), first_name=first_name, last_name=last_name)
-            print('reaching the login function')
+            #print('reaching the login function')
             login(request, user)
             return render(request, 'auth/landing.html',)
     except Exception as e:
-        print(e)
+        # print(e)
+        return None
     render(request, 'auth/register.html')
 
 
@@ -83,7 +84,8 @@ def login_api(request):
             messages.error(request, 'Invalid username or password')
             return redirect('/')
     except Exception as e:
-        print(e)
+        # print(e)
+        return None
     return render(request, 'auth/login.html')
 
 
