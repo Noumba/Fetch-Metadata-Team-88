@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="email-input.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Forgot password- Email input</title>
+    <link rel="icon" type="image/svg" sizes="32x32" href="images/proto 1.svg">
+
+</head>
+<body>
+
+<div class="header" id="header">
+<nav class="nav_bar">
+ 
+    <div class="logo_div">
+        <img src="images/proto 1.svg" alt="logo" class="image">
+        <p class="logo_title">PROTO</p>
+    </div>
+</nav>
+</div>
+<main>
+    <div class= "body">
+     <div class="text">
+        <h1>Forgot password?</h1>
+       <p class="text-paragraph">Enter the mail associated with your account and we will send
+       an email containing password recovery instruction</p>
+     </div>
+       <form action= "{% url 'account:ForgetPassword' %}" method="post">
+         <!--{% csrf_token %}-->
+        <label for="email" class="label">Email</label></br>
+        <input type="email" name="email" placeholder="Username@domain.com" required></br>
+         <input type="submit" value="Verify Email">
+          <a href="#" class="arrow">&larr; Back to login</a>
+      </form>
+    </div>
+</main>

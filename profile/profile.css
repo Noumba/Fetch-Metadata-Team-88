@@ -1,0 +1,370 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap");
+
+.nav_bar {
+  background: linear-gradient(
+    124.05deg,
+    rgba(0, 49, 112, 0.9) 52.28%,
+    rgba(2, 62, 138, 0.81) 68.75%
+  );
+}
+
+.search_bar_div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 40vw;
+  margin-right: 60px;
+}
+
+.search_input {
+  border: none;
+  height: 80%;
+  width: 70%;
+  padding: 12px 40px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.search_icon {
+  color: grey;
+  transform: translateX(60px);
+}
+
+.profile_avatar {
+  max-width: 10%;
+}
+.main_div {
+  display: flex;
+  height: 90vh;
+}
+
+.side_menu {
+  height: 150vh;
+  border-right: 1px solid #ccc;
+}
+
+.link_div {
+  display: flex;
+  padding-left: 20px;
+  width: 15vw;
+  margin: 15px 0;
+}
+
+.profile-link {
+  margin-left: 10px;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 36px;
+  display: flex;
+  align-items: center;
+  color: #14191f;
+}
+
+.link_div:hover {
+  cursor: pointer;
+}
+
+/* remove with js */
+/* #profile_link_div_1 {
+  background: #01295c;
+}
+
+#profile_link_1 {
+  color: white;
+} */
+
+.selected_icon {
+  filter: invert(100%) sepia(100%) saturate(10%) hue-rotate(36deg)
+    brightness(104%) contrast(97%);
+}
+
+.selected_link_div {
+  background-color: #01295c;
+}
+
+.selected_link_text {
+  color: white;
+}
+.img_profile {
+  width: 150px;
+}
+.profile {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 60px;
+}
+.profile_subsection {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 60vw;
+  padding: 20px;
+  margin-left: 40px;
+}
+
+.manage_profile_button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 32px;
+  gap: 8px;
+  border: none;
+  background: #023e8a;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  font-family: "Work Sans";
+}
+
+.description {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  padding-right: 270px;
+  margin-top: 10px;
+  color: #14191f;
+}
+
+.call_to_action_image {
+  margin-left: 40px;
+}
+
+.input_div {
+  padding-left: 8%;
+  margin-top: 3vh;
+}
+
+.label {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  color: #14191f;
+}
+
+.edit-2 {
+  transform: translate(-40px, 5px);
+}
+
+.input {
+  border: none;
+  height: 80%;
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid rgb(233, 233, 233);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.change_password {
+  font-family: "Work Sans";
+  padding: 4% 8% 0;
+}
+
+.buttons {
+  display: flex;
+  height: 60vh;
+  justify-content: flex-end;
+  width: 75vw;
+  margin-top: 10vh;
+  align-items: center;
+}
+
+.button_1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 32px;
+  gap: 8px;
+  border: none;
+  background: none;
+  border-radius: 8px;
+  color: #023e8a;
+  font-weight: 600;
+  width: 15vw;
+  font-family: "Work Sans";
+  transition: 0.5s;
+}
+
+.button_2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 32px;
+  gap: 8px;
+  border: none;
+  background: #023e8a;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  width: 15vw;
+  font-family: "Work Sans";
+  transition: 0.5s;
+}
+
+.button_1:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.button_2:hover {
+  cursor: pointer;
+  background-color: #044eae;
+}
+
+@media screen and (max-width: 800px) {
+  .logo_div {
+    display: none;
+  }
+  .line {
+    background-color: black;
+    width: 22px;
+    margin: 4px;
+  }
+  .nav_bar {
+    background: white;
+    height: 5vh;
+
+    padding: 30px 0;
+  }
+  body {
+    width: 90vw;
+  }
+  .main_div {
+    flex-direction: column;
+  }
+  .side_menu {
+    position: absolute;
+    background-color: white;
+    width: 100vw;
+    z-index: 20;
+    height: 130vh;
+    display: none;
+  }
+  .side_menu_visible {
+    display: block;
+  }
+  .link_div {
+    width: 100vw;
+  }
+
+  .profile {
+    padding: 0;
+    margin: 0;
+    margin-top: 30px;
+  }
+  .profile_subsection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+  }
+  .img_profile {
+    width: 100px;
+  }
+  .call_to_action_image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    margin: 0;
+  }
+  .img_profile {
+    padding: 0;
+    margin: 0;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+  .search_bar_div {
+    position: absolute;
+    display: none;
+  }
+  .description {
+    text-align: center;
+    padding: 0;
+  }
+  .manage_profile_button {
+    margin-top: 20px;
+    height: 6vh;
+  }
+
+  .name_email {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .input_div {
+    padding: 0;
+    margin-top: 30px;
+    transform: translateX(20px);
+  }
+  .input {
+    height: 70%;
+    border-color: rgb(154, 154, 154);
+    margin: 20px 0;
+    padding: 0 10px;
+    width: 90vw;
+    margin-top: 0px;
+  }
+
+  .buttons {
+    height: 30px;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    margin: 30px auto;
+    width: 100vw;
+    transform: translateX(5px);
+  }
+
+  .button_1 {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 12px;
+    width: 140px;
+    height: 48px;
+    background: #8a8c8f;
+    border-radius: 8px;
+    color: white;
+  }
+  .button_2 {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 12px;
+    width: 136px;
+    height: 48px;
+    background-color: #044eae;
+    border-radius: 8px;
+    color: white;
+  }
+  .change_password {
+    font-weight: 300px;
+    margin-top: 30px;
+  }
+}

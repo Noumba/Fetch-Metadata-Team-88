@@ -21,15 +21,22 @@
         <img src="images/proto 1.svg" alt="logo" class="image">
         <p class="logo_title">PROTO</p>
     </div>
+
+    <div class="link_btn_nav">
+      <a class="nav_link" href="">Dashboard</a>
+      <a class="nav_link" href="">FAQ</a>
+    </div>
     <div class="button_div" id="menu">
         <button class="login_btn">Log in</button>
-        <button class="signup_btn">Signup</button>
+        <button class="signup_btn">Sign Up</button>
     </div>
     <div class="burger" id="burger">
         <div class="line " id="line_1"></div>
         <div class="line" id="line_2"></div>
         <div class="line" id="line_3"></div>
     </div>
+
+    
 </nav>
 
 <div class="hero" id="hero">
@@ -52,6 +59,7 @@
                 <input id="inputTag" type="file"/>
               </label>
               </div>
+              <p class="allowed">Maximum File size 10MB. Mainly json,pdf,jpeg,mp3,mp4 is allowed</p>
             </div>
 
         </div>
@@ -79,7 +87,7 @@
        <img class="trusty_img" src="images/zuri.svg" alt="">
     </div>
    </div>
-<hr>
+<hr class="trust_hr">
 </section>
 
 <div class="instructions">
@@ -110,7 +118,7 @@
     </div>   
     
    <div class="instruction_card">
-        <div class="blue_circle">  <img src="images/export.svg" alt="" class="instruction_icon"></div>
+        <div class="blue_circle">  <img class="arrow" src="images/export.svg" alt="" class="instruction_icon"></div>
       
         <p class="instruction_title">
          Download Metadata
@@ -220,12 +228,12 @@
             What Is MetaData?
          </p>
         </div>
-        <div class="question_hide">
-            <img class="arrow-up" src="images/arrow up.png" alt="">
+        <div  id="arrow_div_1" class="question_hide">
+            <img id="arrow_1"  class="arrow-up" src="images/arrow up.png" alt="">
         </div>
 
       </div>
-      <p class="question_paragragh">Metadata, is basically data that provides information about other data.  It is used to summarize basic information about data that can make tracking and working with specific data easier.</p>
+      <p id="p_1" class="question_paragragh">Metadata, is basically data that provides information about other data.  It is used to summarize basic information about data that can make tracking and working with specific data easier.</p>
     </div>
 
     <div class="question">
@@ -241,7 +249,7 @@
          </p>
         </div>
         <div class="question_hide">
-            <img class="arrow-up" src="images/arrow up.png" alt="">
+            <img  class="arrow-up" src="images/arrow up.png" alt="">
         </div>
 
       </div>
@@ -334,7 +342,57 @@
 
 </section>
 
+<section class="subscribe">
+  <h1 class="subscribe-heading">
+    Subscribe to our newsletters for updates
+  </h1>
 
+
+
+<div class="sub_form_div">
+  <form class="sub_form">
+    <input class="subscribe_input " type="text" id="fname" name="firstname" placeholder="Enter your email address">
+     <button class="subscribe_button">Subscribe</button>
+  </form>
+</div>
+
+
+<footer class="footer_div">
+ 
+  <div class="footer_logo">
+        <img src="images/proto 1.svg" alt="logo" class="image">
+        <p class="footer_title">PROTO</p>
+   </div>
+
+    <div class="link_divs">
+      <div class="link_div">
+        <a class="link" href="#">About Us</a>
+          <a class="link" href="#">Privacy Policy</a>
+            <a class="link"  href="#">Terms & Conditions</a>
+      </div>
+       <div class="link_div">
+        <a class="link" href="#">How it works.</a>
+          <a class="link" href="#">Products</a>
+           
+      </div>
+    </div>
+
+<div>
+  <div class="socials">
+    <a href=""><img src="images/instagram 1.png" alt="" srcset=""></a>
+    <a href=""><img src="images/twitter.png" alt="" srcset=""></a>
+    <a href=""><img src="images/linkedin 1.png" alt="" srcset=""></a>
+    <a href=""><img src="images/facebook.png" alt="" srcset=""></a>
+    <a href=""><img src="images/mail 1.png" alt="" srcset=""></a>
+  </div>
+    <div class="copyright-div">
+      <hr class="socials_hr">
+    <p class="copyright">@2022 PROTO. All Rights Reserved</p>
+    </div>
+</div>
+
+
+</footer>
     <script src="app.js"></script>
 </body>
 
