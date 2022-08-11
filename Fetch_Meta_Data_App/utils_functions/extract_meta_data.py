@@ -45,8 +45,8 @@ test = get_media_metadata(
 
 img_path = f'Fetch_Meta_Data_App/static/upload/80.png'
 
-with open(img_path, 'rb') as img_file:
-    img = Image(img_file)
+# with open(img_path, 'rb') as img_file:
+#img = Image(img_file)
 
 # print(img.has_exif)
 

@@ -1,3 +1,4 @@
+from tkinter import CASCADE
 from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
@@ -18,3 +19,10 @@ class Files(models.Model):
 
     def __str__(self) -> str:
         return self.file_name
+
+
+class Metadata(models.Model):
+    meta_owner = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    meta_data = models.JSONField()
+    created_at = models.DateTimeField(auto_now_add=True)
