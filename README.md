@@ -9,6 +9,18 @@ https://github.com/orgs/zuri-training/teams/fetch-metadata-team-88
 
 In this project we used Django to build a web based metadata extraction web app, for any kind of a file. You upload a file, and the web app extracts the metadata, saves it as a json file, and you can download, and share the metadata and file.
 
+The final design submission by the design team
+
+User reseach and documentation
+
+Moodboard
+
+Design system
+
+Lofi Web/Mobile
+
+Hifi Web/Mobile
+
 ---
 
 **Tools used**
@@ -21,7 +33,7 @@ In this project we used Django to build a web based metadata extraction web app,
 
 - Python
 
-___
+---
 
 **Our Project Documentation:**
 
