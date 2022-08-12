@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <form method="POST" class="#" enctype='multipart/form-data' action="{% url 'index' %}">  
+    <form method="POST" class="#" enctype='multipart/form-data' action="{% url 'upload' %}">  
         {% csrf_token %}  
         {{ form.as_p }}  
     <button type="submit" class="#">Upload File/Extract</button>  

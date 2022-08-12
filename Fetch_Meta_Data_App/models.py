@@ -33,11 +33,11 @@ def validate_file(file_upload):
 
 class Files(models.Model):
     '''File model'''
-    file_name = models.CharField(max_length=300)
+    #file_name = models.CharField(max_length=300)
     #file_type = models.CharField(max_length=10)
     #file_size = models.IntegerField()
-    file_owner = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    # file_owner = models.ForeignKey(
+    # settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     uploaded_at = models.DateTimeField(auto_now_add=True)
     file_uploaded = models.FileField(
         blank=True, null=True, validators=[validate_file])

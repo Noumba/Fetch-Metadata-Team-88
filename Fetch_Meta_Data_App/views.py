@@ -20,9 +20,10 @@ import json
 
 class LandingPageView(TemplateView):
     template_name = 'index.html'
+
     def get(self, request):
         return render(request, self.template_name)
-    #def post
+    # def post
 
 
 class SignUpPageView(View):
@@ -107,7 +108,7 @@ def upload_file(request):
     #meta_data_json = json.dumps(meta_data, indent=4)
 
     context['form'] = form
-    return render(request, 'index.html', context)  # {'form': form})
+    return render(request, 'upload.html', context)  # {'form': form})
 
 
 def result_display():
