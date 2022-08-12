@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-2nn-*cj@x7z$0#u*ag9d@n*-a&^_lboz_*kc0tr$ma_ve!#%kd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -34,6 +34,11 @@ INSTALLED_APPS = [
     # Our Apps
     'account.apps.AccountConfig',
     'Fetch_Meta_Data_App.apps.FetchMetaDataAppConfig',
+    'django_social_share',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
 
     # Admin Apps
     'django.contrib.admin',
@@ -42,6 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+
 ]
 
 MIDDLEWARE = [
@@ -70,6 +77,16 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+AUTHENTICATION_BACKENDS = [
+
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+
 ]
 
 WSGI_APPLICATION = 'Fetch_Mata_Data.wsgi.application'
@@ -133,3 +150,18 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'davincileonardo685@gmail.com'
 EMAIL_HOST_PASSWORD = 'bsdhjmxkwlysgrjt'
+
+SITE_ID = 2
+LOGIN_REDIRECT_URL = '/'
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
