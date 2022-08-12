@@ -17,11 +17,11 @@ def validate_file(file_upload):
 
 class Files(models.Model):
     '''File model'''
-    #file_name = models.CharField(max_length=300)
+    file_name = models.CharField(max_length=300)
     #file_type = models.CharField(max_length=10)
     #file_size = models.IntegerField()
-    # file_owner = models.ForeignKey(
-    #    settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    file_owner = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     uploaded_at = models.DateTimeField(auto_now_add=True)
     file_uploaded = models.FileField(
         blank=True, null=True, validators=[validate_file])
@@ -41,3 +41,32 @@ class Metadata(models.Model):
 
     def __str__(self) -> str:
         return self.meta_data
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    image = models.ImageField(default='default.jpg', upload_to='profile_pics')
+
+    def __str__(self):
+        return f'{self.user.username} Profile'
+
+    def save(self, *args, **kwargs):
+        super(Profile, self).save(*args, **kwargs)
+
+        img = Image.open(self.image.path)
+
+        if img.height > 300 or img.width > 300:
+            output_size = (300, 300)
+            img.thumbnail(output_size)
+            img.save(self.image.path)
+
+
+class UserFiles(models.Model):
+    name = models.CharField(max_length=200)
+    metadata = models.TextField(null=True)
+    file_owner = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return self.name
