@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserUpdateForm, ProfileUpdateForm
 from .forms import FileUpload
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, View
 from .models import User, UserPost
 # Fetch metadata packages
 from Fetch_Meta_Data_App.utils_functions.functions import handle_uploaded_file
@@ -21,9 +21,10 @@ class LandingPageView(TemplateView):
     template_name = 'index.html'
 
 
-class SignUpPageView(ListView):
+class SignUpPageView(View):
+
     def get(self, request):
-        return redirect('home')
+        return redirect('signup.html')
 
     def post(self, request):
         user_name = request.POST['uname']
@@ -40,10 +41,12 @@ class SignUpPageView(ListView):
                             email=user_email, password=user_password)
             add_user.save()
             messages.success(request, "Account Created Successful")
-            return redirect("home")
+            return redirect("login")
         else:
             messages.warning(request, 'Passwords are not same.')
-            return redirect('home')
+            return redirect('signup')
+
+        # return render(request, 'signup.html')
 
 
 def upload_file(request):

@@ -24,4 +24,4 @@ urlpatterns = [
     #path('accounts/', include('django.contrib.auth.urls')),
     #path('', include('account.urls')),
     path('', include('Fetch_Meta_Data_App.urls'))
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]  # + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
