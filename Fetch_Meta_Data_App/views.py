@@ -34,8 +34,8 @@ def upload_file(request):
             context['metadata'] = zip(tags, values)
             context_dict = meta_data
 
-            model_instance = form.save(commit=False)
-            model_instance.save()
+           # model_instance = form.save(commit=False)
+            # model_instance.save()
 
             request.session['metadata_session'] = context_dict
 
@@ -64,6 +64,8 @@ def download_metadata(request):
     json_writer = json.dumps(metadata, indent=4)
     response = HttpResponse(json_writer, content_type='application/json')
     response['Content-Disposition'] = 'attachment; filename="metadata.json"'
+
+    return response
 
 
 def share_metadata():
