@@ -1,5 +1,4 @@
 # Admin libraries
-from re import template
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, request
 from django.core.files.storage import FileSystemStorage
@@ -110,7 +109,7 @@ def upload_file(request):
     #meta_data_json = json.dumps(meta_data, indent=4)
 
     context['form'] = form
-    return render(request, 'upload.html', context)  # {'form': form})
+    return render(request, 'uploadfile.html', context)  # {'form': form})
 
 
 def result_display():
