@@ -7,6 +7,23 @@ from PIL import Image
 # Create your models here.
 
 
+class User(models.Model):
+    username = models.CharField(max_length=50)
+    password = models.CharField(max_length=50)
+    email = models.EmailField()
+
+    def __str__(self):
+        return self.username
+
+
+class UserPost(models.Model):
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    file_field = models.FileField()
+
+    def __str__(self):
+        return f'{self.user}=> {self.title}'
+
+
 def validate_file(file_upload):
     file_size = file_upload.file.size
     limit_kb = 100000

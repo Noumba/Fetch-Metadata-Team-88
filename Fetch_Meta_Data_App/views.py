@@ -1,5 +1,4 @@
 # Admin libraries
-from importlib.metadata import metadata
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, request
 from django.core.files.storage import FileSystemStorage
@@ -7,7 +6,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import UserUpdateForm, ProfileUpdateForm
 from .forms import FileUpload
-
+from django.views.generic import TemplateView, ListView
+from .models import User, UserPost
 # Fetch metadata packages
 from Fetch_Meta_Data_App.utils_functions.functions import handle_uploaded_file
 from Fetch_Meta_Data_App.utils_functions.extract_meta_data import get_metadata
@@ -15,6 +15,32 @@ from Fetch_Meta_Data_App.utils_functions.extract_meta_data import get_metadata
 # Export filetype library
 import json
 # Create your views here.
+
+
+class LandingPageView(TemplateView):
+    template_name = 'index.html'
+
+
+class SignUpPageView(ListView):
+    def get(self, request):
+        user_name = request.POST['uname']
+        user_email = request.POST['email']
+        user_password = request.POST['pwd1']
+        confirm_password = request.POST['pwd2']
+
+        print(user_name)
+        print(user_password)
+        print(confirm_password)
+
+        if user_password == confirm_password:
+            add_user = User(username=user_name,
+                            email=user_email, password=user_password)
+            add_user.save()
+            messages.success(request, "Account Created Successful")
+            return redirect("home")
+        else:
+            messages.warning(request, 'Passwords are not same.')
+            return redirect('home')
 
 
 def upload_file(request):
