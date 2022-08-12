@@ -23,6 +23,9 @@ class LandingPageView(TemplateView):
 
 class SignUpPageView(ListView):
     def get(self, request):
+        return redirect('home')
+
+    def post(self, request):
         user_name = request.POST['uname']
         user_email = request.POST['email']
         user_password = request.POST['pwd1']
