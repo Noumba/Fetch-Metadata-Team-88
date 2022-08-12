@@ -20,5 +20,5 @@ from Fetch_Meta_Data_App import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('account.urls')),
-    path('index/', views.upload_file),
+    path('', include('Fetch_Meta_Data_App.urls'))
 ]
