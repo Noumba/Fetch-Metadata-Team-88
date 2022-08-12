@@ -1,4 +1,5 @@
 # Admin libraries
+from re import template
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, request
 from django.core.files.storage import FileSystemStorage
@@ -19,12 +20,16 @@ import json
 
 class LandingPageView(TemplateView):
     template_name = 'index.html'
+    def get(self, request):
+        return render(request, self.template_name)
+    #def post
 
 
 class SignUpPageView(View):
+    template_name = 'signup.html'
 
     def get(self, request):
-        return redirect('signup.html')
+        return render(request, self.template_name)
 
     def post(self, request):
         user_name = request.POST['uname']
@@ -47,6 +52,28 @@ class SignUpPageView(View):
             return redirect('signup')
 
         # return render(request, 'signup.html')
+
+
+class LoginView(View):
+    template_name = 'login.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
+
+    def post(self, request):
+        user_name = request.POST['uname']
+        pwd = request.POST['pwd']
+
+        user_exists = User.objects.filter(
+            username=user_name, password=pwd).exists()
+        if user_exists:
+            request.session['user'] = user_name
+            messages.info(request, 'You are logged in successfully.')
+            return redirect('landing')
+        else:
+            messages.info(request, 'Invalid Username or Password.')
+            return redirect('landing')
+        return redirect('home')
 
 
 def upload_file(request):
