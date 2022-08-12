@@ -23,7 +23,9 @@ class LandingPageView(TemplateView):
 
     def get(self, request):
         return render(request, self.template_name)
-    # def post
+
+    def post(self, request):
+        pass
 
 
 class SignUpPageView(View):
@@ -46,10 +48,10 @@ class SignUpPageView(View):
             add_user = User(username=user_name,
                             email=user_email, password=user_password)
             add_user.save()
-            messages.success(request, "Account Created Successful")
+            messages.info(request, "Account Created Successful")
             return redirect("login")
         else:
-            messages.warning(request, 'Passwords are not same.')
+            messages.info(request, 'Passwords are not same.')
             return redirect('signup')
 
         # return render(request, 'signup.html')
