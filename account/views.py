@@ -4,7 +4,7 @@ import uuid
 from django.forms import PasswordInput
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
-#from .models import User, Profile
+from .models import User, Profile
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from .helpers import send_forget_password_mail
