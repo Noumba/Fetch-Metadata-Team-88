@@ -1,7 +1,402 @@
-<body>  
-    <form method="POST" class="#" enctype="multipart/form-data">  
-        {% csrf_token %}  
-        {{ form.as_p }}  
-    <button type="submit" class="#">Extract Meta Data</button>  
-</form>  
-</body> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/css/main.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>PROTO</title>
+    <meta name="title" content="PROTO">
+    <meta name="description" content="A web app that extracts and displays metadata of files.">
+    <link rel="icon" type="image/svg" sizes="32x32" href="/static/images/proto 1.svg">
+
+</head>
+<body>
+<div class="header" id="header">
+<nav class="nav_bar">
+ 
+    <div class="logo_div">
+        <img src="/static/images/proto 1.svg" alt="logo" class="image">
+        <p class="logo_title">PROTO</p>
+    </div>
+
+    <div class="link_btn_nav">
+      <a class="nav_link" href="">Dashboard</a>
+      <a class="nav_link" href="">FAQ</a>
+    </div>
+    <div class="button_div" id="menu">
+      <form action="login">
+        <button class="login_btn" href="/login">Log in</button>
+      </form>
+      <form action="signup">
+        <button class="signup_btn" href="/signup">Sign Up</button>
+    </form>
+    </div>
+    <div class="burger" id="burger">
+        <div class="line " id="line_1"></div>
+        <div class="line" id="line_2"></div>
+        <div class="line" id="line_3"></div>
+    </div>
+
+    
+</nav>
+
+<div class="hero" id="hero">
+    <div class="hero_text_div">
+        <p class="title">Extract Metadata</p>
+        <p class="subtitle">Service that offers a fast route to understanding, accessing and viewing info about a specific file.</p>
+    </div>
+
+    <div class="drop_section_outer">
+        <div class="drop_section_inner">
+            <img class="file" src="/static/images/Vector.svg" alt="file Symbol">
+            <div class="upload_div"> 
+           <label class="upload" for="inputTag">
+                Upload File
+                <input id="inputTag" type="file"/>
+              </label>
+            <p class="or">OR</p>
+            <label class="paste_url" for="inputTag">
+                Upload File
+                <input id="inputTag" type="file"/>
+              </label>
+              </div>
+              <p class="allowed">Maximum File size 10MB. Mainly json,pdf,jpeg,mp3,mp4 is allowed</p>
+            </div>
+
+        </div>
+    </div>
+
+  
+</div>
+</div>
+
+
+
+
+
+<section class="trusty_sec" id="trust">
+    <div class="trusted_div">
+    <p class="trusted_p">
+       TRUSTED BY
+    </p>
+    <div class="trustees">
+       <img class="trusty_img" src="/static/images/ingressive.jpg" alt="">
+       <img class="trusty_img" src="/static/images/Slack.png" alt="">
+       <img class="trusty_img" src="/static/images/Google svg.jpg" alt="">
+       <img  class="trusty_img"src="/static/images/Chrome.jpg" alt="">
+      
+       <img class="trusty_img" src="/static/images/zuri.svg" alt="">
+    </div>
+   </div>
+<hr class="trust_hr">
+</section>
+
+<div class="instructions">
+ <p class="instruction_heading">
+    How to get the metadata info of your file.
+ </p>
+ <div class="instruction_cards">
+    <div class="instruction_card">
+        <div class="blue_circle">  <img src="/static/images/upload.svg" alt="" class="instruction_icon"></div>
+      
+        <p class="instruction_title">
+            Upload Files
+        </p>
+        <p class="instruction_paragragh">
+            Upload any file and we'll read its metadata and show you what's inside.
+        </p>
+    </div>
+    
+   <div class="instruction_card">
+        <div class="blue_circle">  <img src="/static/images/extract.svg" alt="" class="instruction_icon"></div>
+      
+        <p class="instruction_title">
+          Extract Metadata
+        </p>
+        <p class="instruction_paragragh">
+            Upload any file and we'll read its metadata and show you what's inside.
+        </p>
+    </div>   
+    
+   <div class="instruction_card">
+        <div class="blue_circle">  <img class="arrow" src="/static/images/export.svg" alt="" class="instruction_icon"></div>
+      
+        <p class="instruction_title">
+         Download Metadata
+        </p>
+        <p class="instruction_paragragh">
+            Upload any file and we'll read its metadata and show you what's inside.
+        </p>
+    </div>
+    
+</div>
+</div>
+
+<div class="instructions testimonials">
+ <p class="instruction_heading testimonial_heading">
+  Testimonials
+ </p>
+ <div class="instruction_cards testimonial_cards">
+      
+   <div class="instruction_card testimonial_card">
+        <div class="blue_circle testimonial_circle">  <img src="/static/images/avatar1.png" alt="" class="instruction_icon"></div>
+      
+        <p class="instruction_title testimonial_title">
+         Jane Cooper
+        </p>
+            <div class="stars">
+         <img src="/static/images/stared.png" alt=""> 
+         <img src="/static/images/stared.png" alt="">     
+         <img src="/static/images/stared.png" alt="">     
+         <img src="/static/images/stared.png" alt="">     
+         <img src="/static/images/unstarred.png" alt="">
+        </div>
+        <p class="instruction_paragragh testimonial_paragragh">
+            "I'm a big fan of Proto's modern approach to uploading and downloading digital files."
+        </p>
+    </div>   
+    
+   <div class="instruction_card testimonial_card">
+        <div class="blue_circle testimonial_circle">  <img src="/static/images/avatar2.png" alt="" class="instruction_icon"></div>
+      
+        <p class="instruction_title testimonial_title">
+          Brooklyn Simmons
+        </p>
+            <div class="stars">
+         <img src="/static/images/stared.png" alt=""> 
+         <img src="/static/images/stared.png" alt="">     
+         <img src="/static/images/stared.png" alt="">     
+         <img src="/static/images/stared.png" alt="">     
+         <img src="/static/images/stared.png" alt="">
+        </div>
+        <p class="instruction_paragragh testimonial_paragragh">
+           "The most efficient way to imporve digital experiences.
+           It gives a cleaner way to access the content i need".
+        </p>
+    </div>   
+    
+     
+   <div class="instruction_card testimonial_card">
+        <div class="blue_circle testimonial_circle alex">  <img src="/static/images/avatar3.png" alt="" class="instruction_icon"></div>
+      
+        <p class="instruction_title testimonial_title">
+          Leslie Alexander
+        </p>
+        <div class="stars">
+         <img src="/static/images/stared.png" alt=""> 
+         <img src="/static/images/stared.png" alt="">     
+         <img src="/static/images/stared.png" alt="">     
+         <img src="/static/images/unstarred.png" alt="">     
+         <img src="/static/images/unstarred.png" alt="">
+        </div>
+        <p class="instruction_paragragh testimonial_paragragh">
+          "Proto does everything i need and is fautless on its delivery."
+        </p>
+    </div>   
+        
+   <div class="instruction_card testimonial_card">
+        <div class="blue_circle testimonial_circle">  <img src="/static/images/avatar4.png" alt="" class="instruction_icon"></div>
+      
+        <p class="instruction_title testimonial_title">
+          Darlene Robertson
+        </p>
+            <div class="stars">
+         <img src="/static/images/stared.png" alt=""> 
+         <img src="/static/images/stared.png" alt="">     
+         <img src="/static/images/stared.png" alt="">     
+         <img src="/static/images/stared.png" alt="">     
+         <img src="/static/images/stared.png" alt="">
+        </div>
+        <p class="instruction_paragragh testimonial_paragragh">
+            "I like the visual format of this software so it's easy for the end user to find files and references when digging for information."
+        </p>
+    </div>   
+</div>
+
+
+<section class="questions">
+    <p class="questions_heading">Frequently Asked Questions</p>
+
+    <div class="question">
+      <div class="question_heading_and_icon q-h-1">
+        <div class="q-heading">
+            <div class="q-icon">
+             <img class="q-box" src="/static/images/q-box.png" alt="">
+          <img class="question-mark question-mark-1" src="/static/images/questionmark.png" alt="">
+        </div>
+        
+         <p class="question_heading">
+            What Is MetaData?
+         </p>
+        </div>
+        <div  id="arrow_div_1" class="question_hide">
+            <img id="arrow_1"  class="arrow-up" src="/static/images/arrow up.png" alt="">
+        </div>
+
+      </div>
+      <p id="p_1" class="question_paragragh">Metadata, is basically data that provides information about other data.  It is used to summarize basic information about data that can make tracking and working with specific data easier.</p>
+    </div>
+
+    <div class="question">
+      <div class="question_heading_and_icon">
+        <div class="q-heading">
+            <div class="q-icon">
+             <img class="q-box" src="/static/images/q-box.png" alt="">
+          <img class="question-mark" src="/static/images/questionmark.png" alt="">
+        </div>
+        
+         <p class="question_heading">
+          What are the benefits of extracting your metadata on PROTO?
+         </p>
+        </div>
+        <div class="question_hide">
+            <img  class="arrow-up" src="/static/images/arrow up.png" alt="">
+        </div>
+
+      </div>
+      <p class="question_paragragh">You get to save data extracted on PROTO and can come back to download it. PROTO allows you to share different file formats on your social media platforms.</p>
+    </div>
+
+    <div class="question">
+      <div class="question_heading_and_icon">
+        <div class="q-heading">
+            <div class="q-icon">
+             <img class="q-box" src="/static/images/q-box.png" alt="">
+          <img class="question-mark" src="/static/images/questionmark.png" alt="">
+        </div>
+        
+         <p class="question_heading">
+            Which files can I extract on PROTO?
+         </p>
+        </div>
+        <div class="question_hide">
+            <img class="arrow-up" src="/static/images/arrow up.png" alt="">
+        </div>
+
+      </div>
+      <p class="question_paragragh p-3">
+        You can extract jpeg, png, pdf, csv, json.
+      </p>
+    </div>
+
+    <div class="question">
+      <div class="question_heading_and_icon">
+        <div class="q-heading">
+            <div class="q-icon">
+             <img class="q-box" src="/static/images/q-box.png" alt="">
+          <img class="question-mark" src="/static/images/questionmark.png" alt="">
+        </div>
+        
+         <p class="question_heading">
+           How can I download or save my metadata on PROTO? 
+         </p>
+        </div>
+        <div class="question_hide">
+            <img class="arrow-up" src="/static/images/arrow up.png" alt="">
+        </div>
+
+      </div>
+      <p class="question_paragragh">By clicking a button and it automatically downloads, also you can always save your files, documents or images on our platform and come back to download them.</p>
+    </div>
+
+    <div class="question">
+      <div class="question_heading_and_icon">
+        <div class="q-heading">
+            <div class="q-icon">
+             <img class="q-box" src="/static/images/q-box.png" alt="">
+          <img class="question-mark" src="/static/images/questionmark.png" alt="">
+        </div>
+        
+         <p class="question_heading">
+          Does PROTO have the database for my files?
+         </p>
+        </div>
+        <div class="question_hide">
+            <img class="arrow-up" src="/static/images/arrow up.png" alt="">
+        </div>
+
+      </div>
+      <p class="question_paragragh">Yes, PROTO stores your uploaded files in a database so that you can always redownload them. However, you are free to delete these files at will.</p>
+    </div>
+
+    <div class="question">
+      <div class="question_heading_and_icon">
+        <div class="q-heading">
+            <div class="q-icon">
+             <img class="q-box" src="/static/images/q-box.png" alt="">
+          <img class="question-mark" src="/static/images/questionmark.png" alt="">
+        </div>
+        
+         <p class="question_heading">
+            How long can I embed my uploaded files on the website?
+         </p>
+        </div>
+        <div class="question_hide">
+            <img class="arrow-up" src="/static/images/arrow up.png" alt="">
+        </div>
+
+      </div>
+      <p class="question_paragragh">The files stays forever.</p>
+    </div>
+
+   
+
+</section>
+
+<section class="subscribe">
+  <h1 class="subscribe-heading">
+    Subscribe to our newsletters for updates
+  </h1>
+
+
+
+<div class="sub_form_div">
+  <form class="sub_form">
+    <input class="subscribe_input " type="text" id="fname" name="firstname" placeholder="Enter your email address">
+     <button class="subscribe_button">Subscribe</button>
+  </form>
+</div>
+
+
+<footer class="footer_div">
+ 
+  <div class="footer_logo">
+        <img src="/static/images/proto 1.svg" alt="logo" class="image">
+        <p class="footer_title">PROTO</p>
+   </div>
+
+    <div class="link_divs">
+      <div class="link_div">
+        <a class="link" href="#">About Us</a>
+          <a class="link" href="#">Privacy Policy</a>
+            <a class="link"  href="#">Terms & Conditions</a>
+      </div>
+       <div class="link_div">
+        <a class="link" href="#">How it works.</a>
+          <a class="link" href="#">Products</a>
+           
+      </div>
+    </div>
+
+<div>
+  <div class="socials">
+    <a href=""><img src="/static/images/instagram 1.png" alt="" srcset=""></a>
+    <a href=""><img src="/static/images/twitter.png" alt="" srcset=""></a>
+    <a href=""><img src="/static/images/linkedin 1.png" alt="" srcset=""></a>
+    <a href=""><img src="/static/images/facebook.png" alt="" srcset=""></a>
+    <a href=""><img src="/static/images/mail 1.png" alt="" srcset=""></a>
+  </div>
+    <div class="copyright-div">
+      <hr class="socials_hr">
+    <p class="copyright">@2022 PROTO. All Rights Reserved</p>
+    </div>
+</div>
+
+
+</footer>
+    <script src="/static/javascript/landing.js"></script>
+</body>
+
+</html>

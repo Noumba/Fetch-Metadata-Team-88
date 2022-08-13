@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@300&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  overflow-x: hidden;
+  background: linear-gradient(
+    124.05deg,
+    rgba(0, 49, 112, 0.9) 52.28%,
+    rgba(2, 62, 138, 0.81) 68.75%
+  );
+  width: 100%;
+}
+
+.nav_bar {
+  display: flex;
+  width: 100vw;
+  height: 12vh;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+}
+
+.image {
+  background: transparent;
+}
+
+.logo_div {
+  display: flex;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 20;
+  padding: 0 5%;
+}
+
+.logo_title {
+  width: 110px;
+  height: 36px;
+  margin-left: 10px;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 35px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+.body{
+  text-align: center;
+  margin-top: 110px;
+}
+h1{
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 600;
+  line-height: 44px;
+}
+.text-paragraph{
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+}
+.button{
+  background: #023E8A;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 32px;
+  gap: 8px;
+  border-radius: 8px;
+  margin: 20px 545px 11px 545px ;
+  align-content: center;
+}
+.button a{
+  text-decoration: none;
+  color: #F7F3F3;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+}
+@media screen and (max-width: 1000px) {
+ p.logo_title{
+    font-size: 20px;
+  }
+  .image{
+    width: 24px;
+    height: 37px;
+  }
+  .nav_bar {
+  height: 8vh;
+  }
+  h1{
+  font-size: 24px;
+  }
+.text-paragraph{
+  font-size: 14px;
+  line-height: 22px;
+  word-wrap: normal;
+  margin: 0 30px 15px 30px ;
+  }
+.button{
+  padding: 8px 32px;
+  gap: 8px;
+  border-radius: 8px;
+  margin: 40px 40px 11px 40px ;
+  }
+  .button a{
+    font-size: 11px;
+  }
+}
