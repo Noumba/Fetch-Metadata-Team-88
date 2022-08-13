@@ -13,6 +13,7 @@ from Fetch_Meta_Data_App.utils_functions.functions import handle_uploaded_file
 from Fetch_Meta_Data_App.utils_functions.extract_meta_data import get_metadata
 
 # Export filetype library
+import csv
 import json
 # Create your views here.
 

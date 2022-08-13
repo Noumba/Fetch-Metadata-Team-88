@@ -32,13 +32,13 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     # Our Apps
-    'account.apps.AccountConfig',
+    # 'account.apps.AccountConfig',
     'Fetch_Meta_Data_App.apps.FetchMetaDataAppConfig',
-    'django_social_share',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
+    # 'django_social_share',
+    # 'allauth',
+    # 'allauth.account',
+    # 'allauth.socialaccount',
+    # 'allauth.socialaccount.providers.google',
 
     # Admin Apps
     'django.contrib.admin',
