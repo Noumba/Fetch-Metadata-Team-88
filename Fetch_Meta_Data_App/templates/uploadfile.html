@@ -35,17 +35,21 @@
             <div class="line" id="line_2"></div>
             <div class="line" id="line_3"></div>
         </div>
-    
-        
     </nav>
    <div class="main_div">
     <p class="title">FIND OUT WHICH METADATA INFORMATION YOUR FILE CONTAINS</p>
-    <img class="folder_image"src="images/folder_upload.png" alt="folder_icon" srcset="">
-    <p class="description">Maximum File size 10MB. Mainly json, pdf, jpeg, mp3, mp4 is allowed</p>
-    <div class="buttons">
-        <button class="upload">Upload</button>
-        <button class="cancel">Cancel</button>
-    </div>
+    <img class="folder_image"src="/static/images/folder_upload.png" alt="folder_icon" srcset="">
+    <p class="description">Maximum File size 10MB. Mainly json, pdf, jpeg, mp3, mp4, csv, txt and any file.</p>
+        
+    <form method="POST" enctype='multipart/form-data' action="{% url 'uploadfile' %}">  
+            {% csrf_token %}  
+            {{ form.as_p }}
+        <div class="buttons">
+            <button class="upload", type="submit">Upload/Extract</button>
+            <br/>
+            <button class="cancel" type="reset">Cancel</button>
+        </div>
+    </form>
    </div>
     <script src="/static/javascript/uploadfile.js"></script>
 </body>
