@@ -1,4 +1,5 @@
 # Admin libraries
+from importlib.metadata import metadata
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, request
 from django.core.files.storage import FileSystemStorage
@@ -119,8 +120,8 @@ def result_display():
     return render(request, "index.html", context)
 
 
-def save_metadata():
-    pass
+def save_metadata(request):
+    metadata = request.session.get("metadata_session")
 
 
 def download_metadata(request):
@@ -145,6 +146,10 @@ def download_file():
 
 
 def delete_file():
+    pass
+
+
+def export_pdf():
     pass
 
 
