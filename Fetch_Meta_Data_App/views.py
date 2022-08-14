@@ -103,7 +103,7 @@ def upload_file(request):
 
             request.session['metadata_session'] = context_dict
 
-            return render(request, 'result.html', context)
+            return render(request, 'metadata.html', context)
     else:
         form = FileUpload()
 
