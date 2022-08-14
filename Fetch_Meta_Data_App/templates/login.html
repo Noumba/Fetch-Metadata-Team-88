@@ -19,11 +19,11 @@
         <div id="form-div" class="flex">
                 <h1>Welcome</h1>
 
-            <form action={% url 'login' %} method="post">
+            <form action="{% url 'login' %}" method="post">
                 {% csrf_token %}
                 <p class="lp">Login to your PROTO account</p>
-                <label for="email">Email*</label>
-                <input type="email" name="email" placeholder="aladerofiah@gmail.com" required>
+                <label for="username">Username*</label>
+                <input type="text" name="username" placeholder="aladerofiah" required>
                 <label for="password">Password*</label>
                 <div>
                     <input type="password" name="password" placeholder="*******" id="password" required>
