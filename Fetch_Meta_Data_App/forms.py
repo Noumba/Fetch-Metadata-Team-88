@@ -7,7 +7,7 @@ from .models import Profile
 class FileUpload(forms.Form):
     # description = forms.CharField(
     # label="Enter file description", max_length=50)
-    user_file = forms.FileField()
+    user_file = forms.FileField(label='Choose a file')
 
 
 class ProfileForm(forms.ModelForm):

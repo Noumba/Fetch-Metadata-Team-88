@@ -50,20 +50,17 @@ body {
   padding: 4%;
 }
 .folder_image {
-  width: 15vw;
+  width: 12vw;
 }
 .title {
-  width: 360px;
-  height: 87px;
-  font-family: "Inter";
+  font-family: "Work Sans";
   font-style: normal;
-  font-weight: 500;
-  font-size: 24px;
-  transform: scale(0.9);
-  margin-bottom: 20px;
-  line-height: 29px;
+  font-weight: 600;
+  font-size: 42px;
+  line-height: 53px;
   text-align: center;
-  color: #1b1b1b;
+  color: #14191f;
+  margin-bottom: 10px;
 }
 .description {
   margin-top: 10px;
@@ -76,7 +73,7 @@ body {
   align-items: center;
   text-align: center;
   color: #14191f;
-  padding: 0 33%;
+  padding: 0 0%;
 }
 
 .buttons {
@@ -85,7 +82,6 @@ body {
   align-items: center;
   width: 18vw;
   padding-top: 20px;
-  padding-right: 10px;
 }
 
 .cancel {
@@ -102,7 +98,6 @@ body {
   font-weight: 600;
   background-color: white;
   border-radius: 8px;
-  margin-right: 10px;
 }
 .upload {
   display: flex;
@@ -115,6 +110,84 @@ body {
   border-radius: 8px;
   color: white;
   font-weight: 400;
+}
+
+.grid-container {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  width: 10vw;
+  transform: translateX(-300%);
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  font-size: 30px;
+  height: 52px;
+  text-align: center;
+}
+.grid-item-odd {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
+  width: 285px;
+  height: 52px;
+  background: #d5d5d5;
+}
+.grid-item-even {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 10px 170px 10px 10px;
+  gap: 10px;
+
+  width: 638px;
+  height: 52px;
+
+  background: #ffffff;
+}
+.table_titles {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  /* identical to box height, or 160% */
+
+  display: flex;
+  align-items: center;
+
+  /* Text colour */
+
+  color: #14191f;
+}
+
+.table_data {
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  color: #14191f;
+}
+
+.bottom_buttons {
+  justify-content: space-around;
+  width: 70vw;
+}
+
+.btn {
+  width: 30vw;
+  margin: 10px;
+  padding-top: 10px;
+}
+
+.btn_icons {
+  margin-left: 20px;
 }
 @media screen and (max-width: 800px) {
   .main_div {

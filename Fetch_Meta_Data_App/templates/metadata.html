@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" 
+    href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/metadatagen.css">
+    <link rel="stylesheet" href="/static/css/metadata.css">
+   
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metadata Result</title>
+    <link rel="icon" type="image/svg" sizes="32x32" href="/static/images/proto 1.svg">
+</head>
+<body>
+    <nav class="nav_bar">
+ 
+        <div class="logo_div">
+            <img src="/static/images/proto 1.svg" alt="logo" class="image">
+            <p class="logo_title">PROTO</p>
+        </div>
+    
+        <div class="link_btn_nav">
+          <a class="nav_link" href="">Dashboard</a>
+          <a class="nav_link" href="">FAQ</a>
+        </div>
+        <div class="search_bar_div" id="menu">
+            <i class="fa fa-search icon search_icon"></i>
+           <input class="search_input" type="text" name="" id="" placeholder="Search">
+           <img class="profile_avatar" src="/static/images/profile_avatar.png" alt="" srcset="">
+        </div>
+        <div class="burger" id="burger">
+            <div class="line " id="line_1"></div>
+            <div class="line" id="line_2"></div>
+            <div class="line" id="line_3"></div>
+        </div>
+    
+        
+    </nav>
+   <div class="main_div">
+    <p class="title">Extracted metadata of your file.</p>
+    <img class="folder_image" src="/static/images/folder_upload.png" alt="folder_icon" srcset="">
+    <p class="description">The following table contains all the metadata info we could get from your file.</p>
+    
+    <hr />
+
+    <div class="table">
+        <div class="grid-container">
+            {% for tag, value in metadata %}
+
+                <div class="grid-item grid-item-odd"><p class="table_titles">{{tag}}</p></div>
+                <div class="grid-item grid-item-even"><p class="table_data">{{value}}</p></div>
+        
+            {%endfor%}
+            
+          </div>
+
+    </div>
+    
+    <div class="buttons bottom_buttons">
+        <form action="">
+            <button class="upload btn">Save <img class="btn_icons" src="/static/images/save-add.png" alt="" srcset=""></button>
+        </form>
+        <form action="">
+            <button class="upload btn">Export <img  class="btn_icons" src="/static/images/export.png" alt="" srcset=""></button>
+        </form>
+        <form action="{% url 'download_metadata' %}">
+            <button class="upload btn">Download <img  class="btn_icons" src="/static/images/ownload.png" alt="" srcset=""></button>
+        </form>
+        <form action="">
+            <button class="upload btn">Share <img  class="btn_icons" src="/static/images/share.png" alt="" srcset=""></button>
+        </form>
+        
+    </div>
+   </div>
+
+  
+    <script src="/static/javascript/metadata.js"></script>
+</body>
+</html>

@@ -1,4 +1,5 @@
 # Admin libraries
+from importlib.metadata import metadata
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, request
 from django.core.files.storage import FileSystemStorage
@@ -13,6 +14,7 @@ from Fetch_Meta_Data_App.utils_functions.functions import handle_uploaded_file
 from Fetch_Meta_Data_App.utils_functions.extract_meta_data import get_metadata
 
 # Export filetype library
+import csv
 import json
 # Create your views here.
 
@@ -102,7 +104,7 @@ def upload_file(request):
 
             request.session['metadata_session'] = context_dict
 
-            return render(request, 'result.html', context)
+            return render(request, 'metadata.html', context)
     else:
         form = FileUpload()
 
@@ -118,8 +120,8 @@ def result_display():
     return render(request, "index.html", context)
 
 
-def save_metadata():
-    pass
+def save_metadata(request):
+    metadata = request.session.get("metadata_session")
 
 
 def download_metadata(request):
@@ -144,6 +146,10 @@ def download_file():
 
 
 def delete_file():
+    pass
+
+
+def export_pdf():
     pass
 
 

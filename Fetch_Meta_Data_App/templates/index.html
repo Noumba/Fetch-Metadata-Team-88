@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="/static/css/main.css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>PROTO</title>
-    <meta name="title" content="PROTO">
-    <meta name="description" content="A web app that extracts and displays metadata of files.">
-    <link rel="icon" type="image/svg" sizes="32x32" href="/static/images/proto 1.svg">
+{% extends 'base.html' %}
 
-</head>
+{% block title %}PROTO{% endblock %}
+
 <body>
 <div class="header" id="header">
 <nav class="nav_bar">
@@ -21,25 +11,35 @@
         <p class="logo_title">PROTO</p>
     </div>
 
+    {% block content %}
+    {% if user.is_authenticated %}
+      <div class="link_btn_nav">
+        <a class="nav_link" href="">Dashboard : {{ user.username }}</a>
+      </div>
+      <div class="button_div" id="menu">
+        <form action="logout">
+          <button class="login_btn" href="/logout">Log Out</button>
+        </form>
+      </div>
+    {% else %}
     <div class="link_btn_nav">
-      <a class="nav_link" href="">Dashboard</a>
       <a class="nav_link" href="">FAQ</a>
     </div>
     <div class="button_div" id="menu">
       <form action="login">
-        <button class="login_btn" href="/login">Log in</button>
+        <button class="login_btn" href="/login">Log In</button>
       </form>
       <form action="signup">
         <button class="signup_btn" href="/signup">Sign Up</button>
     </form>
     </div>
+{% endif %}
+{% endblock %}
     <div class="burger" id="burger">
         <div class="line " id="line_1"></div>
         <div class="line" id="line_2"></div>
         <div class="line" id="line_3"></div>
     </div>
-
-    
 </nav>
 
 <div class="hero" id="hero">
@@ -49,21 +49,19 @@
     </div>
 
     <div class="drop_section_outer">
-        <div class="drop_section_inner">
-            <img class="file" src="/static/images/Vector.svg" alt="file Symbol">
-            <div class="upload_div"> 
-           <label class="upload" for="inputTag">
-                Upload File
-                <input id="inputTag" type="file"/>
-              </label>
-            <p class="or">OR</p>
-            <label class="paste_url" for="inputTag">
-                Upload File
-                <input id="inputTag" type="file"/>
-              </label>
-              </div>
-              <p class="allowed">Maximum File size 10MB. Mainly json,pdf,jpeg,mp3,mp4 is allowed</p>
+      <div class="drop_section_inner">
+          <img class="file" src="/static/images/Vector.svg" alt="file Symbol">
+          <div class="upload_div"> 
+          <label class="paste_url" for="inputTag">
+              Upload File
+              <input id="inputTag" type="file"/>
+            </label>
             </div>
+            <p class="allowed">Maximum File size 10MB. Mainly json,pdf,jpeg,mp3,mp4 is allowed</p>
+          </div>
+
+      </div>
+  </div>
 
         </div>
     </div>
@@ -71,10 +69,6 @@
   
 </div>
 </div>
-
-
-
-
 
 <section class="trusty_sec" id="trust">
     <div class="trusted_div">

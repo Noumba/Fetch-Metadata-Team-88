@@ -48,7 +48,16 @@ Hifi Web/Mobile
 
 ### Getting Started
 
----
+## In This project we used **Django Templating** to serve our pages.
+
+**Folder Structure**
+The main folders in project for the backend are:
+
+- Fetch_Meta_Data => Project folder
+- Fetch_Meta_Data => Our APP folder
+- account => Our Auth APP folder
+
+## The Rest are front-end pages
 
 **Clone Project**
 To use the project you need to clone the repo on to your computer.
