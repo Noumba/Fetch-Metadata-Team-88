@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),  # our user auth urls
 
     #path('', include('account.urls')),
     #path('index/', views.upload_file),
