@@ -166,6 +166,10 @@ def download_metadata(request):
     return response
 
 
+def export_pdf():
+    pass
+
+
 def share_metadata():
     pass
 
@@ -179,10 +183,6 @@ def download_file():
 
 
 def delete_file():
-    pass
-
-
-def export_pdf():
     pass
 
 
