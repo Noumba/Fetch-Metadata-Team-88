@@ -12,4 +12,5 @@ urlpatterns = [
     path('dashboard/', views.DashBoardView.as_view(), name='dashboard'),
     path('export_pdf/', views.export_pdf, name='export_pdf'),
     path('dashboard/', views.save_metadata, name='save_metadata'),
+    path('profile/', views.ProfileView.as_view(), name='profile')
 ]

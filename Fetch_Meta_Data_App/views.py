@@ -111,10 +111,14 @@ class DashBoardView(View):
 
 
 class ProfileView(View):
+    def get(self, request, user_name):
+        user_obj = User.objects.get(username=user_name)
 
-    # site funtionalities, like upload, save, export, download and more
+        param = {'user_data': user_obj}
+        return render(request, 'profile.html', param)
 
 
+# site funtionalities, like upload, save, export, download and more
 def validate_file(file_upload):
     file_size = file_upload.file.size
     limit_kb = 100000
