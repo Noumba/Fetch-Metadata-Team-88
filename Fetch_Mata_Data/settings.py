@@ -154,7 +154,7 @@ EMAIL_HOST_PASSWORD = 'bsdhjmxkwlysgrjt'
 
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
-
+LOGOUT_REDIRECT_URL = "/"
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
         'SCOPE': [

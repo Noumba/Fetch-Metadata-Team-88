@@ -6,11 +6,11 @@ from .models import Profile, Files, Metadata, User, UserPost
 # admin.site.register(Metadata)
 
 
-@admin.register(User)
-class UserAdmin(admin.ModelAdmin):
-    list_display = ['username', 'password', 'email']
+# @admin.register(User)
+# class UserAdmin(admin.ModelAdmin):
+# list_display = ['username', 'password', 'email']
 
 
 # @admin.register(UserPost)
 # class PostAdmin(admin.ModelAdmin):
-   # list_display = ['user', 'file_field']
+# list_display = ['user', 'file_field']

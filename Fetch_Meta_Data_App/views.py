@@ -1,9 +1,9 @@
 # Admin libraries
-from importlib.metadata import metadata
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, request
 from django.core.files.storage import FileSystemStorage
 from django.contrib import messages
+from django.contrib.auth.models import User, auth
 from django.contrib.auth.decorators import login_required
 from .forms import UserUpdateForm, ProfileUpdateForm
 from .forms import FileUpload
@@ -36,18 +36,18 @@ class SignUpPageView(View):
         return render(request, self.template_name)
 
     def post(self, request):
-        user_name = request.POST['uname']
-        user_email = request.POST['email']
-        user_password = request.POST['pwd1']
+        username = request.POST['username']
+        email = request.POST['email']
+        password = request.POST['password']
         confirm_password = request.POST['pwd2']
 
-        print(user_name)
-        print(user_password)
-        print(confirm_password)
+        # print(username)
+       # print(password)
+       # print(confirm_password)
 
-        if user_password == confirm_password:
-            add_user = User(username=user_name,
-                            email=user_email, password=user_password)
+        if password == confirm_password:
+            add_user = User(username=username,
+                            email=email, password=password)
             add_user.save()
             messages.info(request, "Account Created Successful")
             return redirect("login")
@@ -65,19 +65,28 @@ class LoginView(View):
         return render(request, self.template_name)
 
     def post(self, request):
-        user_name = request.POST['uname']
-        pwd = request.POST['pwd']
+        if request.method == 'POST':
+            username = request.POST['username']
+            password = request.POST['password']
 
-        user_exists = User.objects.filter(
-            username=user_name, password=pwd).exists()
-        if user_exists:
-            request.session['user'] = user_name
-            messages.info(request, 'You are logged in successfully.')
-            return redirect('landing')
+            user_exists = User.objects.filter(
+                username=username, password=password).exists()
+            if user_exists:
+                request.session['user'] = username
+                messages.info(request, 'You are logged in successfully.')
+                return redirect('landing')
         else:
             messages.info(request, 'Invalid Username or Password.')
-            return redirect('landing')
-        return redirect('home')
+            return redirect('login')
+
+        return render(request, 'index.html')
+
+
+class LogOutView(View):
+
+    def get(self, request):
+        auth.logout(request)
+        return redirect('/')
 
 
 def upload_file(request):

@@ -16,7 +16,7 @@
     
     <div id="Sign_in_form" class="flex">
         
-        <form action='signup' method="post">
+        <form action="{% url 'signup' %}" method="post">
             {% csrf_token %}
             <h1>Create an Account</h1>
             <button id="button_1" type="button"> Continue with Google <img src="/static/images/Google svgnewgoogle.png"> </button>
@@ -25,15 +25,15 @@
         
             <p id="or">OR</p>
 
-            <label for="full name">Username*</label>
-            <input type="text" name="uname" placeholder="Alade Rofiah" required>
+            <label for="username">Username*</label>
+            <input type="text" name="username" placeholder="Alade Rofiah" required>
 
             <label for="email">Email*</label>
             <input  type="email" name="email" placeholder="AladeRofiah@gmail.com" required>
 
             
             <label for="password">Password*</label>
-            <input  type="password" name="pwd1" id="password" placeholder="********" required>
+            <input  type="password" name="password" id="password" placeholder="********" required>
             <p>Min of 8 characters</p>
  
         
@@ -45,7 +45,7 @@
                 <label id="agrees" for="exampleCheck1">I agree to Fetch project terms & service and privacy <br>
                                                   policy</label>
             </div>
-            <input type="button" value="Create Account" class="create">
+            <input type="submit" value="Create Account" class="create" />
 
             <p id="account_already">Already have an account? <a href="/login">Sign in</a></p>
         </form>    
