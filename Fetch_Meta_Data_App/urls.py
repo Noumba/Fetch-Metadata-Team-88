@@ -11,4 +11,5 @@ urlpatterns = [
     path('download', views.download_metadata, name='download_metadata'),
     path('dashboard/', views.DashBoardView.as_view(), name='dashboard'),
     path('export_pdf/', views.export_pdf, name='export_pdf'),
+    path('dashboard/', views.save_metadata, name='save_metadata'),
 ]

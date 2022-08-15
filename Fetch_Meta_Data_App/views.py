@@ -1,4 +1,5 @@
 # Admin libraries
+from xml.dom import ValidationErr
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, request
 from django.core.files.storage import FileSystemStorage
@@ -16,6 +17,7 @@ from Fetch_Meta_Data_App.utils_functions.extract_meta_data import get_metadata
 # Generating PDF for Export
 from django.shortcuts import render
 import io
+import os
 from django.http import FileResponse
 from reportlab.pdfgen import canvas
 
@@ -102,10 +104,19 @@ class DashBoardView(View):
     template_name = 'dashboard.html'
 
     def get(self, request):
-        return render(request, self.template_name)
+        all_files = UserFiles.objects.all()
+        context = {'files': all_files}
+        return render(request, self.template_name, context)
 
 
 # site funtionalities, like upload, save, export, download and more
+
+def validate_file(file_upload):
+    file_size = file_upload.file.size
+    limit_kb = 100000
+    if file_size > limit_kb * 1024:
+        raise ValidationErr("Max size of file is %s KB" % limit_kb)
+
 
 def upload_file(request):
     '''Uploading File'''
@@ -131,7 +142,17 @@ def upload_file(request):
 
             request.session['metadata_session'] = context_dict
 
+            if uploaded_file.size < 30000000:
+                name = uploaded_file.name
+                owner = request.user
+                file_up = UserFiles.objects.filter(name=name).exists()
+                if not file_up:
+                    file_data = UserFiles(name=name,
+                                          uploaded_file=uploaded_file, file_owner=owner)
+                    file_data.save()
+
             return render(request, 'metadata.html', context)
+
     else:
         form = FileUpload()
 
@@ -158,7 +179,7 @@ def save_metadata(request):
     else:
         data = json.dumps(metadata)
         metadata_result = Metadata(
-            file_name=name_metadata, meta_data=metadata, meta_owner=owner)
+            file_name=name_metadata, meta_data=data, meta_owner=owner)
         metadata_result.save()
         messages.info(request, "Metadata Saved!!")
         return render(request, 'dashboard.html')
@@ -171,6 +192,15 @@ def download_metadata(request):
     response['Content-Disposition'] = 'attachment; filename="metadata.json"'
 
     return response
+
+
+def delete_meta(request, pk):
+    file_meta = Metadata.objects.get(id=pk)
+    file_meta.delete()
+    meta_owner = request.user
+    pk = meta_owner.id
+    messages.info(request, 'File Deleted Successfully')
+    return redirect('dashboard.html', pk=pk)
 
 
 def export_pdf(request):
@@ -195,8 +225,15 @@ def get_file():
     pass
 
 
-def download_file():
-    pass
+def download_file(request, path):
+    file_path = ''
+    if os.path.exists(file_path):
+        with open(file_path) as fh:
+            response = HttpResponse(
+                fh.read(), content_type="application/uploaded_file")
+            response["Content-Disposition"] = "inline;filename" + \
+                os.path.basename(file_path)
+            return response
 
 
 def delete_file():

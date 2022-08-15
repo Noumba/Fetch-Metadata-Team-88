@@ -9,8 +9,8 @@ class FileUpload(forms.Form):
     # label="Enter file description", max_length=50)
     user_file = forms.FileField(label='Choose a file')
     # class Meta:
-    # model = Files
-    # @ fields = ['file_uploaded']
+    #model = UserFiles
+    #fields = ['file_uploaded']
 
 
 class ProfileForm(forms.ModelForm):

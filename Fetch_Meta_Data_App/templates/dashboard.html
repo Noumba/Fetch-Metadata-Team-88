@@ -45,8 +45,8 @@
                     <p class="profile-link" href="" id="profile_link_1">Profile</p>
                 </div>
                 <div class="link_div">
-                    <img class="icon_image" src="/static/images/folder-2.svg" alt="" srcset="" >
-                    <p class="profile-link" href="" id="profile_link_1">My Files</p>
+                    <img class="icon_image" src="static/images/folder-2.svg" alt="" srcset="" >
+                    <p class="profile-link" href="{% url 'dashboard' %}" id="profile_link_1">My Files</p>
                 </div>
                 <div class="link_div">
                     <img class="icon_image" src="/static/images/trash.svg" alt="" srcset="" >
@@ -67,57 +67,21 @@
         <div class="image">
             <div class="profile">
                 <div class="folders">
+                    {% for file in files %}
                     <div class="folder">
                         <img class="folder_image" src="/static/images/folder-2.png" alt="">
-                        <p class="folder_name">Zuri Files</p>
-                        <p class="folder_date">July 25, 2022 11:04</p>
-                    </div>
-                    <div class="folder">
-                        <img class="folder_image" src="/static/images/folder-2.png" alt="">
-                        <p class="folder_name">Project 88</p>
-                        <p class="folder_date">July 25, 2022 11:04</p>
-                    </div>
-                    <div class="folder">
-                        <img class="folder_image" src="/static/images/folder-2.png" alt="">
-                        <p class="folder_name">HNG</p>
-                        <p class="folder_date">July 25, 2022 11:04</p>
-                    </div>
-                    <div class="folder">
-                        <img class="folder_image" src="/static/images/folder-2.png" alt="">
-                        <p class="folder_name">INGRESSION</p>
-                        <p class="folder_date">July 25, 2022 11:04</p>
-                    </div>
-                </div>               
-            </div>
-        
-    
-            <div class="profile">
-                <div class="folders">
-                    <div class="folder">
-                        <img class="folder_image" src="/static/images/folder-2.png" alt="">
-                        <p class="folder_name">Meta Fetch</p>
-                        <p class="folder_date">July 25, 2022 11:04</p>
-                    </div>
-                    <div class="folder">
-                        <img class="folder_image" src="/static/images/folder-2.png" alt="">
-                        <p class="folder_name">Fetch Meta</p>
-                        <p class="folder_date">July 25, 2022 11:04</p>
-                    </div>
-                    <div class="folder">
-                        <img class="folder_image" src="/static/images/folder-2.png" alt="">
-                        <p class="folder_name">Zuri Files</p>
-                        <p class="folder_date">July 25, 2022 11:04</p>
-                    </div>
-                    <div class="folder">
-                        <img class="folder_image" src="/static/images/folder-2.png" alt="">
-                        <p class="folder_name">Zuri Files</p>
-                        <p class="folder_date">July 25, 2022 11:04</p>
-                    </div>
+                        <p class="folder_name">{{file.name}}</p>
+                        <p class="folder_name">{{file.file_owner}}</p>
+                        <p class="folder_date">{{file.created_at}}</p>
+                    <a href="{{MEDIA_URL}}/{{file.uploaded_file.url}}" class="btn btn-warning" target="_blank">View</a>
+                    <a href="{{MEDIA_URL}}/{{file.uploaded_file.url}}" class="btn btn-info mx-4" download>Download</a>  
                 </div>
-            </div>
+
+                {% endfor %}
+    
+             </div>
         </div>
     </div>
-  </div>
         <!-- <div class="trash_button_div">
             <button class="call_to_action_1">
                Create Files
