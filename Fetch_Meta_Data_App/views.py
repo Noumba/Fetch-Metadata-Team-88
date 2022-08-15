@@ -110,7 +110,10 @@ class DashBoardView(View):
         return render(request, self.template_name, context)
 
 
-# site funtionalities, like upload, save, export, download and more
+class ProfileView(View):
+
+    # site funtionalities, like upload, save, export, download and more
+
 
 def validate_file(file_upload):
     file_size = file_upload.file.size
