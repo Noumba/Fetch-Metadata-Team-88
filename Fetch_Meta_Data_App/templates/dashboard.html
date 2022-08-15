@@ -18,12 +18,11 @@
  
         <div class="logo_div">
             <img src="/static/images/proto 1.svg" alt="logo" class="image">
-            <p class="logo_title">PROTO</p>
+            <a href="{% url 'landing' %}"><p class="logo_title">PROTO</p></a>
         </div>
     
         <div class="link_btn_nav">
-          <a class="nav_link" href="">Upload</a>
-          <a class="nav_link" href="">FAQ</a>
+          <a class="nav_link" href="{% url 'uploadfile' %}">UPLOAD FILE</a>
         </div>
         <div class="search_bar_div" id="menu">
             <i class="fa fa-search icon search_icon"></i>

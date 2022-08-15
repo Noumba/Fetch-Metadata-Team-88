@@ -1,9 +1,9 @@
 from django.contrib import admin
-from .models import Profile, Files, Metadata, User, UserPost
+from .models import UserProfile, Metadata, UserFiles
 # Register your models here.
-# admin.site.register(Profile)
-# admin.site.register(Files)
-# admin.site.register(Metadata)
+admin.site.register(UserProfile)
+admin.site.register(UserFiles)
+admin.site.register(Metadata)
 
 
 # @admin.register(User)

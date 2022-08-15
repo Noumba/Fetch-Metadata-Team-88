@@ -8,10 +8,17 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserUpdateForm, ProfileUpdateForm
 from .forms import FileUpload
 from django.views.generic import TemplateView, ListView, View
-from .models import User, UserPost
+from .models import Metadata, UserFiles, UserProfile
 # Fetch metadata packages
 from Fetch_Meta_Data_App.utils_functions.functions import handle_uploaded_file
 from Fetch_Meta_Data_App.utils_functions.extract_meta_data import get_metadata
+
+# Generating PDF for Export
+from django.shortcuts import render
+import io
+from django.http import FileResponse
+from reportlab.pdfgen import canvas
+
 
 # Export filetype library
 import csv
@@ -71,6 +78,7 @@ class LoginView(View):
 
             user_exists = User.objects.filter(
                 username=username, password=password).exists()
+            print(user_exists)
             if user_exists:
                 request.session['user'] = username
                 messages.info(request, 'You are logged in successfully.')
@@ -78,8 +86,7 @@ class LoginView(View):
         else:
             messages.info(request, 'Invalid Username or Password.')
             return redirect('login')
-
-        return render(request, 'index.html')
+        # return render(request, 'login')
 
 
 class LogOutView(View):
@@ -87,7 +94,18 @@ class LogOutView(View):
     def get(self, request):
         auth.logout(request)
         return redirect('/')
+######
+# DashBoard View
 
+
+class DashBoardView(View):
+    template_name = 'dashboard.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
+
+
+# site funtionalities, like upload, save, export, download and more
 
 def upload_file(request):
     '''Uploading File'''
@@ -131,6 +149,19 @@ def result_display():
 
 def save_metadata(request):
     metadata = request.session.get("metadata_session")
+    name_metadata = metadata['File:FileName']
+    owner = request.user
+
+    if Metadata.objects.filter(file_name=name_metadata).exists() and Metadata.objects.get(file_name=name_metadata).meta_owner == owner:
+        messages.info(request, "File exists")
+        return render(request, "dashboard.html")
+    else:
+        data = json.dumps(metadata)
+        metadata_result = Metadata(
+            file_name=name_metadata, meta_data=metadata, meta_owner=owner)
+        metadata_result.save()
+        messages.info(request, "Metadata Saved!!")
+        return render(request, 'dashboard.html')
 
 
 def download_metadata(request):
@@ -140,6 +171,17 @@ def download_metadata(request):
     response['Content-Disposition'] = 'attachment; filename="metadata.json"'
 
     return response
+
+
+def export_pdf(request, pk):
+    buffer = io.BytesIO()
+    x = canvas.Canvas(buffer)
+    x.drawString(100, 100, request.session.get("metadata_session"))
+    x.showPage()
+    x.save()
+    buffer.seek(0)
+
+    return FileResponse(buffer, as_attachment=True, filename='Export_metadata.pdf')
 
 
 def share_metadata():
@@ -155,10 +197,6 @@ def download_file():
 
 
 def delete_file():
-    pass
-
-
-def export_pdf():
     pass
 
 
