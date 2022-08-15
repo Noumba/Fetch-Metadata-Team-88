@@ -20,9 +20,7 @@
 
             <form action={% url 'account:register_api' %} method="post">
                 {% csrf_token %}
-                <div id="logo" class="flex">
-                    <img src="/static/images/proto 3.png" alt="Proto Logo">
-                </div>
+
                 <button class="button" id="button_1" type="button"> Continue with Google <img src="/static/images/Google svgnewgoogle.png"> </button>
 
                 <button class="button" id="button_2" type="button"> Continue with Apple <img src="/static/images/path188apple.png"> </button>
