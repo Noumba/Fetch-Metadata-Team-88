@@ -111,8 +111,8 @@ class DashBoardView(View):
 
 
 class ProfileView(View):
-    def get(self, request, user_name):
-        user_obj = User.objects.get(username=user_name)
+    def get(self, request):
+        user_obj = request.user
 
         param = {'user_data': user_obj}
         return render(request, 'profile.html', param)

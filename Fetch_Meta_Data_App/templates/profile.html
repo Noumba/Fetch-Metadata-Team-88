@@ -46,7 +46,7 @@
                 </div>
                 <div class="link_div">
                     <img class="icon_image" src="/static/images/folder-2.svg" alt="" srcset="" >
-                    <p class="profile-link" href="" id="profile_link_1">My Files</p>
+                    <p class="profile-link" href="" id="profile_link_1"><a href="{% url 'dashboard' %}">My Files</a></p>
                 </div>
                 <div class="link_div">
                     <img class="icon_image" src="/static/images/trash.svg" alt="" srcset="" >
@@ -72,12 +72,12 @@
                     Max. file size is 10mb and min. size 50kb</p>
             </div>
             </div>
-            <p> Welcome {{user.username}} </p>
+            <p> Welcome {{user_data}} !! </p>
             <form class="name_email">
                 <div class="input_div" id="menu">
                     <p class="label">Full Name</p>
                   
-                   <input class="input" type="text" name="" id="" placeholder={{}}>
+                   <input class="input" type="text" name="" id="" placeholder="">
                    <img  class="edit-2" src="/static/images/edit-2.svg" alt="">
                 </div>
                 <div class="input_div" id="menu">
