@@ -105,7 +105,8 @@ class DashBoardView(View):
 
     def get(self, request):
         all_files = UserFiles.objects.all()
-        context = {'files': all_files}
+        all_metadata = Metadata.objects.all()
+        context = {'files': all_files, 'metadatas': all_metadata}
         return render(request, self.template_name, context)
 
 
@@ -179,7 +180,7 @@ def save_metadata(request):
     else:
         data = json.dumps(metadata)
         metadata_result = Metadata(
-            file_name=name_metadata, meta_data=data, meta_owner=owner)
+            file_name=name_metadata+'metadata', meta_data=data, meta_owner=owner)
         metadata_result.save()
         messages.info(request, "Metadata Saved!!")
         return render(request, 'dashboard.html')

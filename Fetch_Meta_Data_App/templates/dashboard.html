@@ -81,6 +81,20 @@
     
              </div>
         </div>
+        <hr />
+        <div class="profile">
+            <div class="folders">
+                {% for metadata in metadatas %}
+                <div class="folder">
+                    <img class="folder_image" src="images/folder-2.png" alt="">
+                    <p class="folder_name">{{metadata.file_name}}</p>
+                    <p class="folder_name">{{metadata.meta_owner}}</p>
+                    <p class="folder_date">{{metadata.created_at}}</p>
+                    <p class="folder_date">{{metadata.meta_data}}</p>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
     </div>
         <!-- <div class="trash_button_div">
             <button class="call_to_action_1">

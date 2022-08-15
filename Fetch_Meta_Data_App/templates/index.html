@@ -51,13 +51,18 @@
     <div class="drop_section_outer">
       <div class="drop_section_inner">
           <img class="file" src="/static/images/Vector.svg" alt="file Symbol">
-          <div class="upload_div"> 
+          <div class="upload_div">
           <label class="paste_url" for="inputTag">
               Upload File
               <input id="inputTag" type="file"/>
+              {% if user.is_authenticated %}
+              <form action="{% url 'uploadfile' %}" method="post">
+                <button type="submit">Extract Metadata</button>
+              </form>
+              {% endif %}
             </label>
             </div>
-            <p class="allowed">Maximum File size 10MB. Mainly json,pdf,jpeg,mp3,mp4 is allowed</p>
+            <p class="allowed">Maximum File size 100MB. Mainly json,pdf,jpeg,mp3,mp4 is allowed</p>
           </div>
 
       </div>
