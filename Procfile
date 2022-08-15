@@ -1,0 +1,1 @@
+web: gunicorn Fetch_Mata_Data.wsgi --log-file -
