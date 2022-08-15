@@ -20,7 +20,7 @@
             <h1>Welcome</h1>
 
             <form action="{% url 'account:login_api' %}" method="post">
-                
+                {% csrf_token %}
                 <p class="lp">Login to your PROTO account</p>
                 <label for="username">Username*</label>
                 <input type="text" name="username" placeholder="aladerofiah" required>

@@ -174,6 +174,7 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
+
 CSRF_TRUSTED_ORIGINS = [
     'https://fierce-brook-14626.herokuapp.com/'
 ]

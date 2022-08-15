@@ -19,7 +19,7 @@
         <div id="Sign_in_form" class="flex">
 
             <form action={% url 'account:register_api' %} method="post">
-                
+                {% csrf_token %}
                 <div id="logo" class="flex">
                     <img src="/static/images/proto 3.png" alt="Proto Logo">
                 </div>
