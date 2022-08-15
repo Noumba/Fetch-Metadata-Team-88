@@ -7,14 +7,6 @@ from PIL import Image
 # Create your models here.
 
 
-class UserPost(models.Model):
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
-    file_field = models.FileField()
-
-    def __str__(self):
-        return f'{self.user}=> {self.title}'
-
-
 def validate_file(file_upload):
     file_size = file_upload.file.size
     limit_kb = 100000
@@ -37,10 +29,11 @@ class Files(models.Model):
         db_table = 'file'
 
     def __str__(self) -> str:
-        return self.file_name
+        return str(self.file_name) + "File"
 
 
 class Metadata(models.Model):
+    file_name = models.CharField(max_length=300)
     meta_owner = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     meta_data = models.JSONField()
@@ -50,7 +43,7 @@ class Metadata(models.Model):
         return self.meta_data
 
 
-class Profile(models.Model):
+class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.jpg', upload_to='profile_pics')
 
@@ -58,7 +51,7 @@ class Profile(models.Model):
         return f'{self.user.username} Profile'
 
     def save(self, *args, **kwargs):
-        super(Profile, self).save(*args, **kwargs)
+        super(UserProfile, self).save(*args, **kwargs)
 
         img = Image.open(self.image.path)
 
@@ -70,7 +63,7 @@ class Profile(models.Model):
 
 class UserFiles(models.Model):
     name = models.CharField(max_length=200)
-    metadata = models.TextField(null=True)
+    uploaded_file = models.FileField()
     file_owner = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)

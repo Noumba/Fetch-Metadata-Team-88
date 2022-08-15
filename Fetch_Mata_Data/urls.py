@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('Fetch_Meta_Data_App.urls')),
     path('accounts/', include('django.contrib.auth.urls')),  # our user auth urls
     #path('', include('account.urls')),
     #path('index/', views.upload_file),
@@ -28,5 +29,4 @@ urlpatterns = [
 
     #path('accounts/', include('django.contrib.auth.urls')),
     #path('', include('account.urls')),
-    path('', include('Fetch_Meta_Data_App.urls'))
 ]  # + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

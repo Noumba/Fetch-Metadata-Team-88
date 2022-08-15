@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserUpdateForm, ProfileUpdateForm
 from .forms import FileUpload
 from django.views.generic import TemplateView, ListView, View
-from .models import User, UserPost
+from .models import Metadata, UserFiles, UserProfile
 # Fetch metadata packages
 from Fetch_Meta_Data_App.utils_functions.functions import handle_uploaded_file
 from Fetch_Meta_Data_App.utils_functions.extract_meta_data import get_metadata
@@ -71,6 +71,7 @@ class LoginView(View):
 
             user_exists = User.objects.filter(
                 username=username, password=password).exists()
+            print(user_exists)
             if user_exists:
                 request.session['user'] = username
                 messages.info(request, 'You are logged in successfully.')
@@ -78,8 +79,7 @@ class LoginView(View):
         else:
             messages.info(request, 'Invalid Username or Password.')
             return redirect('login')
-
-        return render(request, 'index.html')
+        # return render(request, 'login')
 
 
 class LogOutView(View):
@@ -87,7 +87,18 @@ class LogOutView(View):
     def get(self, request):
         auth.logout(request)
         return redirect('/')
+######
+# DashBoard View
 
+
+class DashBoardView(View):
+    template_name = 'dashboard.html'
+
+    def get(self, request):
+        return render(request, self.template_name)
+
+
+# site funtionalities, like upload, save, export, download and more
 
 def upload_file(request):
     '''Uploading File'''
@@ -131,6 +142,19 @@ def result_display():
 
 def save_metadata(request):
     metadata = request.session.get("metadata_session")
+    name_metadata = metadata['File:FileName']
+    owner = request.user
+
+    if Metadata.objects.filter(file_name=name_metadata).exists() and Metadata.objects.get(file_name=name_metadata).meta_owner == owner:
+        messages.info(request, "File exists")
+        return render(request, "dashboard.html")
+    else:
+        data = json.dumps(metadata)
+        metadata_result = Metadata(
+            file_name=name_metadata, meta_data=metadata, meta_owner=owner)
+        metadata_result.save()
+        messages.info(request, "Metadata Saved!!")
+        return render(request, 'dashboard.html')
 
 
 def download_metadata(request):

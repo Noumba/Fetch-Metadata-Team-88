@@ -22,8 +22,7 @@
         </div>
     
         <div class="link_btn_nav">
-          <a class="nav_link" href="">Dashboard</a>
-          <a class="nav_link" href="">FAQ</a>
+          <a class="nav_link" href="{% url 'dashboard' %}">Dashboard</a>
         </div>
         <div class="search_bar_div" id="menu">
             <i class="fa fa-search icon search_icon"></i>
@@ -41,7 +40,7 @@
     <img class="folder_image"src="/static/images/folder_upload.png" alt="folder_icon" srcset="">
     <p class="description">Maximum File size 10MB. Mainly json, pdf, jpeg, mp3, mp4, csv, txt and any file.</p>
         
-    <form method="POST" enctype='multipart/form-data' action="{% url 'uploadfile' %}">  
+    <form method="POST" enctype='multipart/form-data' action="{% url 'uploadfile' %}" class="#">  
             {% csrf_token %}  
             {{ form.as_p }}
             <div class="buttons">

@@ -1,18 +1,21 @@
 from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.models import User
-from .models import Profile
+from .models import UserProfile, UserFiles
 
 
 class FileUpload(forms.Form):
     # description = forms.CharField(
     # label="Enter file description", max_length=50)
     user_file = forms.FileField(label='Choose a file')
+    # class Meta:
+    # model = Files
+    # @ fields = ['file_uploaded']
 
 
 class ProfileForm(forms.ModelForm):
     class Meta:
-        model = Profile
+        model = UserProfile
         fields = '__all__'
         exclude = ['user']
 
@@ -27,5 +30,5 @@ class UserUpdateForm(forms.ModelForm):
 
 class ProfileUpdateForm(forms.ModelForm):
     class Meta:
-        model = Profile
+        model = UserProfile
         fields = ['image']
