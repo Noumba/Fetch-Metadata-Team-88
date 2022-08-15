@@ -10,5 +10,5 @@ urlpatterns = [
     path('uploadfile/', views.upload_file, name='uploadfile'),
     path('download', views.download_metadata, name='download_metadata'),
     path('dashboard/', views.DashBoardView.as_view(), name='dashboard'),
-    path('export_pdf/<int:pk>', views.export_pdf, name='export_pdf'),
+    path('export_pdf/', views.export_pdf, name='export_pdf'),
 ]
