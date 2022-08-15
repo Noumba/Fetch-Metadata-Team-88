@@ -33,7 +33,7 @@ class Files(models.Model):
 
 
 class Metadata(models.Model):
-    file_name = models.CharField(max_length=300)
+    file_name = models.CharField(max_length=300, blank=True, null=True)
     meta_owner = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     meta_data = models.JSONField()
@@ -63,7 +63,7 @@ class UserProfile(models.Model):
 
 class UserFiles(models.Model):
     name = models.CharField(max_length=200)
-    uploaded_file = models.FileField()
+    uploaded_file = models.FileField(blank=True, null=True)
     file_owner = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)

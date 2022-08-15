@@ -173,11 +173,11 @@ def download_metadata(request):
     return response
 
 
-def export_pdf(request, **kwargs):
-    pk = kwargs.get("pk")
+def export_pdf(request):
     buffer = io.BytesIO()
+    value = json.dumps(request.session.get("metadata_session"))
     x = canvas.Canvas(buffer)
-    x.drawString(100, 100, request.session.get("metadata_session"))
+    x.drawString(260, 300, value)
     x.showPage()
     x.save()
     buffer.seek(0)

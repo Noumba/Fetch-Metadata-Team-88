@@ -21,11 +21,13 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('Fetch_Meta_Data_App.urls')),
     # path('accounts/', include('django.contrib.auth.urls')),  # our user auth urls
     path('account/', include('account.urls')),
     #path('index/', views.upload_file),
     #"social media accounts route"
     path('accounts/', include('allauth.urls')),
+
 
     #path('accounts/', include('django.contrib.auth.urls')),
     #path('', include('account.urls')),
