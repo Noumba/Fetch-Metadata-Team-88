@@ -20,12 +20,12 @@
 
             <form action={% url 'account:register_api' %} method="post">
                 
-                <h1>Create an Account</h1>
-                <button id="button_1" type="button"> Continue with Google <img
-                        src="/static/images/Google svgnewgoogle.png"> </button>
+                <div id="logo" class="flex">
+                    <img src="/static/images/proto 3.png" alt="Proto Logo">
+                </div>
+                <button class="button" id="button_1" type="button"> Continue with Google <img src="/static/images/Google svgnewgoogle.png"> </button>
 
-                <button id="button_2" type="button"> Continue with Apple <img src="/static/images/path188apple.png">
-                </button>
+                <button class="button" id="button_2" type="button"> Continue with Apple <img src="/static/images/path188apple.png"> </button>
 
                 <p id="or">OR</p>
 
@@ -46,8 +46,7 @@
                 <p>Min of 8 characters</p>
                 <div class="parent">
                     <input type="checkbox" name="tick_box" value="I_agree" id="agree" required>
-                    <label id="agrees" for="exampleCheck1">I agree to Fetch project terms & service and privacy <br>
-                        policy</label>
+                    <label id="agrees" for="exampleCheck1">I agree to Proto's terms & service and privacy policy</label>
                 </div>
                 <input type="submit" value="Create Account" class="create" />
 

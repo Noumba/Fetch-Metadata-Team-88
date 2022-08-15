@@ -83,6 +83,11 @@
   justify-content: center;
   align-items: center;
   margin: 0 20px;
+  transition: cubic-bezier(0.32, 0.12, 0.25, 1) 0.8s;
+}
+
+.active-burger {
+  transform: rotate(360deg);
 }
 
 .line {
@@ -92,6 +97,7 @@
   margin: 7px;
   border-radius: 2px;
   margin: 8px;
+  transition: cubic-bezier(0.32, 0.12, 0.25, 1) 0.4s;
 }
 
 .button_div {
@@ -112,7 +118,6 @@
   width: 10vw;
   padding: 15px 0;
   font-weight: 700;
-  transition: 0.3s;
 }
 .login_btn:hover {
   background-color: white;
@@ -125,11 +130,10 @@
   background: white;
   font-family: "Work Sans";
   font-style: normal;
-  line-height: 32px;
+  line-height: 40px;
   font-weight: 900;
   color: #023e8a;
   width: 10vw;
-  transition: 0.5s;
 }
 .signup_btn:hover {
   transform: scale(1.1);
@@ -318,23 +322,14 @@ hr {
   align-items: center;
 }
 
-.arrow-up {
-  transform: rotate(0deg);
-}
-/* .arrow-down {
-  animation-name: arrowMoveUp;
-  animation-duration: 1s;
+.arrow-down {
   transform: rotate(180deg);
 }
 
-@keyframes arrowMoveUp {
-  from {
-    transform: rotate(180deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
-} */
+.arrow-up {
+  transform: rotate(0deg);
+}
+
 .instruction_title {
   font-family: "Work Sans";
   font-style: normal;
@@ -355,12 +350,15 @@ hr {
   color: #14191f;
 }
 
+.card-wrapper {
+  display: flex;
+}
+
 .testimonial_card {
-  border: 1px solid rgb(194, 194, 194);
-  box-shadow: -1px 2px 4px #c9c9c9;
+  box-shadow: 0px 0px 5px 2px #c9c9c975;
   width: 220px;
   margin: 0 25px;
-  border-radius: 4px;
+  border-radius: 10px;
 }
 
 .testimonial_title {
@@ -405,13 +403,19 @@ hr {
   margin: 5% 0;
 }
 
-.arrow-up {
-  transform: rotate(180deg);
+.question {
+  height: 100px;
+  transition: linear 0.4s;
 }
 
-.arrow-down {
-  transform: rotate(0deg);
+.active-question {
+  height: 150px;
 }
+
+.active-question_2 {
+  height: 130px;
+}
+
 .question-mark {
   position: relative;
   transform: scale(1.5);
@@ -422,6 +426,9 @@ hr {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background: #fff;
+  position: relative;
+  z-index: 20;
 }
 .question_heading {
   font-family: "Work Sans";
@@ -451,6 +458,7 @@ hr {
   justify-content: center;
   align-items: center;
   transition: 0.3s;
+  z-index: 20;
 }
 
 .question_hide:hover {
@@ -465,15 +473,12 @@ hr {
   color: #14191f;
   padding: 0 15vw 2vw 7vw;
   width: 90vw;
-  transform: scale(0);
-  opacity: 0;
+  transform: translateY(-100px);
+  transition: linear 0.4s;
 }
 
 .question_paragragh_show {
-  opacity: 1;
-  transform: scale(1);
-  animation-name: show;
-  animation-duration: 0.5s;
+  transform: translateY(0);
 }
 
 @keyframes show {
@@ -553,7 +558,7 @@ hr {
 .footer_div {
   background: #023e8a;
   padding-bottom: 7%;
-  width: 98.7vw;
+  width: 100vw;
   margin-top: 5%;
   display: flex;
 
@@ -774,37 +779,22 @@ hr {
     margin: 5% 0 -2% 0;
   }
   .button_div {
-    height: 150vh;
-    z-index: 0;
-    padding-top: 200px;
-    width: 50vw;
+    height: 230vh;
+    z-index: 5;
+    padding: 200px 0 0 40px;
+    width: 60vw;
     position: absolute;
     justify-content: center;
     flex-direction: column;
-    align-items: center;
     background-color: #023e8a;
-    visibility: hidden;
+    transform: translateX(-255px);
+    transition: cubic-bezier(0.32, 0.12, 0.25, 1) 0.4s;
   }
   .button_div_active {
-    visibility: visible;
-    animation-name: fade;
-    animation-duration: 500ms;
+    transform: translateX(0px);
   }
   .burger {
     display: block;
-  }
-
-  @keyframes fade {
-    from {
-      opacity: 0;
-      width: 0vw;
-      height: 0vh;
-    }
-    to {
-      opacity: 1;
-      width: 50vw;
-      height: 150vh;
-    }
   }
 
   .login_btn {
@@ -879,6 +869,12 @@ hr {
     bottom: 12px;
     left: -22px;
   }
+
+  .question-mark_3 {
+    left: -22px;
+    bottom: 12px;
+  }
+
   .q-h-1 {
     margin-left: 5px;
   }
@@ -889,8 +885,17 @@ hr {
     height: 20px;
     width: 20px;
   }
+  
+  .arrow-down {
+    transform: rotate(180deg) scale(0.5);
+  }
+  
   .arrow-up {
-    transform: scale(0.5);
+    transform: rotate(0deg) scale(0.5);
+  }
+
+  .active-question {
+    height: 250px;
   }
 
   .questions_heading {
@@ -913,12 +918,15 @@ hr {
   .subscribe_button {
     width: 50%;
   }
-  .testimonial_cards {
+  .card-wrapper {
     overflow-x: scroll;
-
-    flex-direction: row;
-
-    width: 90vw;
+    width: 100%;
+    height: 310px;
+    align-items: center;
+  }
+  .testimonial_cards {
+    width: 100vw;
+    padding-inline: 0;
   }
   .testimonial_card {
     height: 300px;
