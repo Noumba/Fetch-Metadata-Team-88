@@ -4,7 +4,7 @@ import uuid
 from django.forms import PasswordInput
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
-#from .models import User, Profile
+from .models import User, Profile
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from .helpers import send_forget_password_mail
@@ -13,9 +13,14 @@ from django.contrib.auth.hashers import make_password
 
 
 # Create your views here.
+"""show forgot password view"""
+
 
 def forgot_password_view(request):
     return render(request, 'auth/forgotten_password.html')
+
+
+"""Authenticated user landing page else redirect to login page"""
 
 
 def auth_users_view(request):
@@ -25,12 +30,21 @@ def auth_users_view(request):
     return render(request, 'auth/login.html')
 
 
+"""Login page view"""
+
+
 def login_view(request):
     return render(request, 'auth/login.html', )
 
 
+"""Register page view"""
+
+
 def register_view(request):
     return render(request, 'auth/register.html', )
+
+
+"""Register api method"""
 
 
 def register_api(request):
@@ -71,6 +85,9 @@ def register_api(request):
     render(request, 'auth/register.html')
 
 
+"""Login api method"""
+
+
 def login_api(request):
     try:
         if request.method == 'POST':
@@ -89,6 +106,9 @@ def login_api(request):
     return render(request, 'auth/login.html')
 
 
+"""Logout api method"""
+
+
 def logout_api(request):
     try:
         logout(request,)
@@ -98,6 +118,7 @@ def logout_api(request):
 
 
 def change_password(request, token):
+    """Change password method called from the users email"""
     context = {}
     print(token)
 
@@ -129,6 +150,9 @@ def change_password(request, token):
     except Exception as e:
         print(e)
     return render(request, 'auth/reset_password.html', context)
+
+
+"""Forgot Password method"""
 
 
 def forgot_password(request):
