@@ -13,6 +13,13 @@ from .models import Metadata, UserFiles, UserProfile
 from Fetch_Meta_Data_App.utils_functions.functions import handle_uploaded_file
 from Fetch_Meta_Data_App.utils_functions.extract_meta_data import get_metadata
 
+# Generating PDF for Export
+from django.shortcuts import render
+import io
+from django.http import FileResponse
+from reportlab.pdfgen import canvas
+
+
 # Export filetype library
 import csv
 import json
@@ -166,8 +173,15 @@ def download_metadata(request):
     return response
 
 
-def export_pdf():
-    pass
+def export_pdf(request, pk):
+    buffer = io.BytesIO()
+    x = canvas.Canvas(buffer)
+    x.drawString(100, 100, request.session.get("metadata_session"))
+    x.showPage()
+    x.save()
+    buffer.seek(0)
+
+    return FileResponse(buffer, as_attachment=True, filename='Export_metadata.pdf')
 
 
 def share_metadata():

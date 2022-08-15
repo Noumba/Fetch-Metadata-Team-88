@@ -63,7 +63,7 @@
             <button class="upload btn">Save <img class="btn_icons" src="/static/images/save-add.png" alt="" srcset=""></button>
         </form>
         <form action="">
-            <button class="upload btn">Export <img  class="btn_icons" src="/static/images/export.png" alt="" srcset=""></button>
+            <button class="upload btn" href="{% url 'export_pdf' %" >Export <img  class="btn_icons" src="/static/images/export.png" alt="" srcset=""></button>
         </form>
         <form action="{% url 'download_metadata' %}">
             <button class="upload btn">Download <img  class="btn_icons" src="/static/images/ownload.png" alt="" srcset=""></button>
