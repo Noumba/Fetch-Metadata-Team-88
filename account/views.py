@@ -4,7 +4,7 @@ import uuid
 from django.forms import PasswordInput
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
-from .models import User, Profile
+from .models import User, Profiles
 from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from .helpers import send_forget_password_mail
@@ -52,8 +52,9 @@ def register_api(request):
         if request.method == 'POST':
 
             # print(request)
-            first_name = request.POST.get("first_name")
-            last_name = request.POST.get('last_name')
+
+            first_name = "Noumba"
+            last_name = "Leonard"
             username = request.POST.get('username')
             password = request.POST.get('password')
             rt_password = request.POST.get('rt_password')
@@ -76,13 +77,15 @@ def register_api(request):
             #print('reaching the create user method')
             user = User.objects.create(username=username, email=email,
                                        password=make_password(password), first_name=first_name, last_name=last_name)
-            #print('reaching the login function')
-            login(request, user)
-            return render(request, 'auth/landing.html',)
+
+            # login(request, user)
+            # print('reaching the render function')
+            return render(request, 'login.html',)
     except Exception as e:
         # print(e)
         return None
-    render(request, 'auth/register.html')
+
+    return render(request, 'signup.html')
 
 
 """Login api method"""
@@ -103,7 +106,7 @@ def login_api(request):
     except Exception as e:
         # print(e)
         return None
-    return render(request, 'auth/login.html')
+    return render(request, 'login.html')
 
 
 """Logout api method"""
@@ -123,7 +126,7 @@ def change_password(request, token):
     print(token)
 
     try:
-        profile_obj = Profile.objects.get(
+        profile_obj = Profiles.objects.get(
             forget_password_token=token)
         print(profile_obj)
         context = {'user_id': profile_obj.user.id}
@@ -171,7 +174,7 @@ def forgot_password(request):
 
             forget_password_token = token
 
-            profile_obj = Profile(
+            profile_obj = Profiles(
                 user=user_obj, forget_password_token=forget_password_token)
             profile_obj.save()
             # print("Yes message")
